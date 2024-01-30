@@ -1,5 +1,5 @@
-import { Outlet, useParams } from 'react-router-dom';
-import { Suspense} from 'react';
+import { Outlet, useParams, Navigate } from 'react-router-dom';
+import { Suspense } from 'react';
 import LanguageSwitcher from 'components/LanguageSwitcher/LanguageSwitcher';
 import { NavLink } from 'react-router-dom';
 import useChangeLanguage from 'hooks/useChangeLanguage ';
@@ -8,6 +8,10 @@ const Layout = () => {
   const { language } = useParams();
 
   useChangeLanguage(language);
+
+  if (!['ua', 'en', 'ru'].includes(language)) {
+    return <Navigate to={`/404`} />;
+  }
 
   return (
     <>

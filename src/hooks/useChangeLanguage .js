@@ -8,9 +8,11 @@ const useChangeLanguage = language => {
   const { i18n } = useTranslation();
 
   useEffect(() => {
-    dispatch(setLanguage(language));
+    if (['ua', 'en', 'ru'].includes(language)) {
+      dispatch(setLanguage(language));
 
-    i18n.changeLanguage(language);
+      i18n.changeLanguage(language);
+    }
     //eslint-disable-next-line
   }, [language, i18n]);
 };
