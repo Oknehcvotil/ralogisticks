@@ -11,12 +11,12 @@ import MultimodalTransportationPage from 'pages/MultimodalTransportationPage/Mul
 import CustomsCLearancePage from 'pages/CustomsCLearancePage/CustomsCLearancePage';
 import CargoInsurancePage from 'pages/CargoInsurancePage/CargoInsurancePage';
 import NotFoundPage from 'pages/NotFoundPage/NotFoundPage';
+import DefaultLanguageRoute from 'components/DefaultLanguageRoute/DefaultLanguageRoute';
 
 const App = () => {
   return (
     <Routes>
-      {/* <Route path="/" element={<DefaultLanguageRoute defaultLanguage="ua" />} /> */}
-      <Route path="/">
+      <Route path="/" element={<DefaultLanguageRoute defaultLanguage="ua" />} />
         <Route path=":language" element={<Layout />}>
           <Route index element={<HomePage />} />
           <Route path="about-us" element={<AboutUsPage />} />
@@ -40,7 +40,6 @@ const App = () => {
         </Route>
         <Route path="404" element={<NotFoundPage />} />
         <Route path="*" element={<Navigate to="/404" />} />
-      </Route>
     </Routes>
   );
 };
