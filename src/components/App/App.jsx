@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, Navigate } from 'react-router-dom';
 import Layout from 'components/Layout/Layout';
 import HomePage from 'pages/HomePage/HomePage';
 import AboutUsPage from 'pages/AboutUsPage/AboutUsPage';
@@ -10,6 +10,7 @@ import SeaShippingPage from 'pages/SeaShippingPage/SeaShippingPage';
 import MultimodalTransportationPage from 'pages/MultimodalTransportationPage/MultimodalTransportationPage';
 import CustomsCLearancePage from 'pages/CustomsCLearancePage/CustomsCLearancePage';
 import CargoInsurancePage from 'pages/CargoInsurancePage/CargoInsurancePage';
+import NotFoundPage from 'pages/NotFoundPage/NotFoundPage';
 
 const App = () => {
   return (
@@ -32,8 +33,9 @@ const App = () => {
           <Route path="cargo-insurance" element={<CargoInsurancePage />} />
         </Route>
         <Route path="contacts" element={<ContactsPage />} />
-        <Route path="*" element={<HomePage />} />
       </Route>
+      <Route path="404" element={<NotFoundPage />} />
+      <Route path="*" element={<Navigate to="/404" />} />
     </Routes>
   );
 };

@@ -16,10 +16,6 @@ const LanguageSwitcher = () => {
     navigate(newPath);
   };
 
-  // useEffect(() => {
-  //   i18n.changeLanguage(language);
-  // }, [language, i18n]);
-
   return (
     <div>
       <div>

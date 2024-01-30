@@ -7,7 +7,6 @@ import enTranslation from '../assets/translations/en.json';
 import ruTranslation from '../assets/translations/ru.json';
 
 const savedLanguage = JSON.parse(localStorage.getItem('persist:language'));
-console.log(savedLanguage);
 
 const currentLanguage = () => {
   return savedLanguage?.value === '"en"'
@@ -16,9 +15,6 @@ const currentLanguage = () => {
     ? 'ua'
     : 'ru';
 };
-// const currentLanguage = () =>
-//   savedLanguage.value === undefined ? 'ua' : savedLanguage.value;
-// console.log(currentLanguage());
 
 i18n.use(initReactI18next).init({
   resources: {
