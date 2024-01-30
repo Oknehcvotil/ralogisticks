@@ -5,15 +5,32 @@ import AboutUsPage from 'pages/AboutUsPage/AboutUsPage';
 import ServicesPage from 'pages/ServicesPage/ServicesPage';
 import ContactsPage from 'pages/ContactsPage/Contacts';
 import DefaultLanguageRoute from 'components/DefaultLanguageRoute/DefaultLanguageRoute';
+import InternationalTransportationPage from 'pages/InternationalTransportationPage/InternationalShippingPage';
+import SeaShippingPage from 'pages/SeaShippingPage/SeaShippingPage';
+import MultimodalTransportationPage from 'pages/MultimodalTransportationPage/MultimodalTransportationPage';
+import CustomsCLearancePage from 'pages/CustomsCLearancePage/CustomsCLearancePage';
+import CargoInsurancePage from 'pages/CargoInsurancePage/CargoInsurancePage';
 
 const App = () => {
   return (
     <Routes>
-      <Route path="/" element={<DefaultLanguageRoute />} />
+      <Route path="/" element={<DefaultLanguageRoute defaultLanguage="ua" />} />
       <Route path="/:language" element={<Layout />}>
         <Route index element={<HomePage />} />
         <Route path="about-us" element={<AboutUsPage />} />
-        <Route path="services" element={<ServicesPage />} />
+        <Route path="services" element={<ServicesPage />}>
+          <Route
+            path="international-transportation"
+            element={<InternationalTransportationPage />}
+          />
+          <Route path="sea-shipping" element={<SeaShippingPage />} />
+          <Route
+            path="multimodal-transportation"
+            element={<MultimodalTransportationPage />}
+          />
+          <Route path="customs-clearance" element={<CustomsCLearancePage />} />
+          <Route path="cargo-insurance" element={<CargoInsurancePage />} />
+        </Route>
         <Route path="contacts" element={<ContactsPage />} />
         <Route path="*" element={<HomePage />} />
       </Route>

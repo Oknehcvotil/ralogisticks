@@ -1,19 +1,14 @@
-import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 const LanguageSwitcher = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const [language, setLanguage] = useState('ua');
   const { t, i18n } = useTranslation();
 
   const companyName = t('companyName');
 
-  console.log(language);
-
   const handleLanguageChange = selectedLanguage => {
-    setLanguage(selectedLanguage);
     const newPath = location.pathname.replace(
       `/${i18n.language}`,
       `/${selectedLanguage}`
@@ -21,9 +16,9 @@ const LanguageSwitcher = () => {
     navigate(newPath);
   };
 
-  useEffect(() => {
-    i18n.changeLanguage(language);
-  }, [language, i18n]);
+  // useEffect(() => {
+  //   i18n.changeLanguage(language);
+  // }, [language, i18n]);
 
   return (
     <div>

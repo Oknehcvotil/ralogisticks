@@ -1,11 +1,24 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
+
 import uaTranslation from '../assets/translations/ua.json';
 import enTranslation from '../assets/translations/en.json';
 import ruTranslation from '../assets/translations/ru.json';
 
-const savedLanguage = localStorage.getItem('language');
+const savedLanguage = JSON.parse(localStorage.getItem('persist:language'));
+console.log(savedLanguage);
+
+const currentLanguage = () => {
+  return savedLanguage?.value === '"en"'
+    ? 'en'
+    : savedLanguage?.value === '"ua"'
+    ? 'ua'
+    : 'ru';
+};
+// const currentLanguage = () =>
+//   savedLanguage.value === undefined ? 'ua' : savedLanguage.value;
+// console.log(currentLanguage());
 
 i18n.use(initReactI18next).init({
   resources: {
@@ -19,14 +32,14 @@ i18n.use(initReactI18next).init({
       translation: ruTranslation,
     },
   },
-  fallbackLng: savedLanguage,
+  fallbackLng: currentLanguage(),
   interpolation: {
     escapeValue: false,
   },
-});
-
-i18n.on('languageChanged', newLanguage => {
-  localStorage.setItem('language', newLanguage);
+  detection:{
+    order: ['cookie', 'localStorage'],
+    cashes: ['cookie']
+  }
 });
 
 export default i18n;
