@@ -1,28 +1,55 @@
 :root {
+  --main-text-color: #1a191c;
+  --title-color: #282b47;
+  --logo-color: #4343e5;
+
   --main-color: #adb8ba;
   --secondary-color: #ea725d;
-  --accent-color: #1976d2;
-  --title-text-color: #212121;
 
   --head-bcg: #3a3e3e;
-  --secondary-background-color: #f4f4fd;
   --accent-background-color: #2f303a;
+  --secondary-background-color: #f4f4fd;
+}
 
-  --primary-background-color: #ffffff;
+@font-face {
+  font-family: 'HeliosCond';
+  font-style: normal;
+  font-weight: 400;
+  src: url('assets/fonts/HeliosCond/HeliosCond.ttf');
+}
 
-  --primary-white-color: #010101;
-  --shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.2),
-    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
-  --transition: 1000ms cubic-bezier(0.4, 0, 0.2, 1);
+@font-face {
+  font-family: 'HeliosCond';
+  font-style: normal;
+  font-weight: 700;
+  src: url('assets/fonts/HeliosCond/HeliosCond-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'OpenSans';
+  font-style: normal;
+  font-weight: 400;
+  src: url('assets/fonts/OpenSans/OpenSans-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'OpenSans';
+  font-style: normal;
+  font-weight: 600;
+  src: url('assets/fonts/OpenSans/OpenSans-SemiBold.ttf');
+}
+
+@font-face {
+  font-family: 'OpenSans';
+  font-style: normal;
+  font-weight: 700;
+  src: url('assets/fonts/OpenSans/OpenSans-Bold.ttf');
 }
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: 'OpenSans', sans-serif;
+  font-size: 12px;
 }
 
 code {
@@ -42,8 +69,14 @@ h3,
 h4,
 h5,
 h6,
-p {
+p,
+ul {
   margin: 0;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
 }
 
 img {
@@ -63,4 +96,17 @@ button {
   padding: 0;
   background-color: transparent;
   cursor: pointer;
+}
+
+.btn {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 18px;
+  left: 15px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: transparent;
 }

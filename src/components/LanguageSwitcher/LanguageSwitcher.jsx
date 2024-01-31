@@ -1,12 +1,19 @@
 import { useTranslation } from 'react-i18next';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation, useParams } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useRef, useEffect } from 'react';
+import { LanguageList } from './LanguageSwitcher.styled';
 
 const LanguageSwitcher = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
+  const { language: currentLanguage } = useParams();
 
-  const companyName = t('companyName');
+  const languages = ['ua', 'en', 'ru'];
+
+  const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef(null);
 
   const handleLanguageChange = selectedLanguage => {
     const newPath = location.pathname.replace(
@@ -14,38 +21,57 @@ const LanguageSwitcher = () => {
       `/${selectedLanguage}`
     );
     navigate(newPath);
+    setIsOpen(false);
   };
 
-  return (
-    <div>
-      <div>
-        <button type="button" onClick={() => handleLanguageChange('ua')}>
-          UA
-        </button>
-        <button type="button" onClick={() => handleLanguageChange('en')}>
-          EN
-        </button>
-        <button type="button" onClick={() => handleLanguageChange('ru')}>
-          RU
-        </button>
-      </div>
-      <div>
-        <p>{companyName}</p>
-      </div>
-    </div>
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
+  };
 
-    // <LanguageCont>
-    //   <button
-    //     type="button"
-    //     onClick={() => handleLanguageChange('ua')}
-    //     className={`${language === 'ua' ? 'active' : ''}`}
-    //   >
-    //   <EnBtn
-    //     type="button"
-    //     onClick={() => handleLanguageChange('en')}
-    //     className={`${language === 'en' ? 'active' : ''}`}
-    //   />
-    // </LanguageCont>
+  const handleClickOutside = event => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      setIsOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('click', handleClickOutside);
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, []);
+
+  return (
+    <LanguageList
+      onClick={toggleDropdown}
+      ref={dropdownRef}
+      className="custom-dropdown"
+    >
+      <li
+        key={currentLanguage}
+        onClick={() => handleLanguageChange(currentLanguage)}
+      >
+        {currentLanguage}
+      </li>
+      {isOpen && (
+        <AnimatePresence>
+          {languages.map(language =>
+            language === currentLanguage ? null : (
+              <motion.li
+                key={language}
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.5}}
+                onClick={() => handleLanguageChange(language)}
+              >
+                {language}
+              </motion.li>
+            )
+          )}
+        </AnimatePresence>
+      )}
+    </LanguageList>
   );
 };
 
