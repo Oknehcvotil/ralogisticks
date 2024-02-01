@@ -7,12 +7,12 @@ const SideMenu = ({ children }) => {
   const { isMenuOpen } = useContext(MenuContext);
 
   return (
-    <AnimatePresence style={{ position: 'relative' }}>
+    <AnimatePresence>
       {isMenuOpen && (
         <SideMenuCont
-          initial={{ right: '-100%' }}
-          animate={{ right: 0 }}
-          exit={{ right: '-100%' }}
+          initial={{ opacity: 0, right: '-100%' }}
+          animate={{ opacity: 1, right: 0 }}
+          exit={{ opacity: 0, right: '-100%' }}
           transition={{ duration: 0.3 }}
         >
           {children}
