@@ -1,8 +1,9 @@
 import { useTranslation } from 'react-i18next';
 import { useNavigate, useLocation, useParams } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import { LanguageList } from './LanguageSwitcher.styled';
+import useOnClickOutside from 'hooks/useOnClickOutside';
 
 const LanguageSwitcher = () => {
   const navigate = useNavigate();
@@ -28,18 +29,11 @@ const LanguageSwitcher = () => {
     setIsOpen(!isOpen);
   };
 
-  const handleClickOutside = event => {
-    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-      setIsOpen(false);
+  useOnClickOutside(dropdownRef, () => {
+    if (isOpen) {
+      toggleDropdown();
     }
-  };
-
-  useEffect(() => {
-    document.addEventListener('click', handleClickOutside);
-    return () => {
-      document.removeEventListener('click', handleClickOutside);
-    };
-  }, []);
+  });
 
   return (
     <LanguageList
@@ -62,7 +56,7 @@ const LanguageSwitcher = () => {
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.5}}
+                transition={{ duration: 0.5 }}
                 onClick={() => handleLanguageChange(language)}
               >
                 {language}

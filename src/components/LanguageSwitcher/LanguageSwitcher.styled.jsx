@@ -8,7 +8,7 @@ export const LanguageList = styled.ul`
   font-weight: 600;
   color: var(--title-color);
 
-  li:nth-child(1) {
+  li:nth-of-type(1) {
     border-bottom: 2px solid var(--logo-color);
     width: 100%;
   }

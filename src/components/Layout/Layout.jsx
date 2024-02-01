@@ -16,11 +16,7 @@ const Layout = () => {
   return (
     <>
       <AppBar />
-      <nav>
-        <NavLink to={`/${language}/about-us`}>About</NavLink>
-        <NavLink to={`/${language}/services`}>Services</NavLink>
-        <NavLink to={`/${language}/contacts`}>Contacts</NavLink>
-      </nav>
+
       <main>
         <Suspense fallback={'loading...'}>
           <Outlet />

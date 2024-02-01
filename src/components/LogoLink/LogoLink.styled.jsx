@@ -4,7 +4,7 @@ import { Link as RouterLink } from 'react-router-dom';
 export const Link = styled(RouterLink)`
   display: flex;
   flex-direction: column;
-
+  margin-right: auto;
   font-weight: 700;
   font-size: 10px;
   color: var(--logo-color);
@@ -22,6 +22,7 @@ export const Link = styled(RouterLink)`
   }
 
   @media (min-width: 1200px) {
+    margin-right: 0;
     font-size: 30px;
   }
 

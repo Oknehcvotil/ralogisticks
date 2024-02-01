@@ -7,7 +7,6 @@ export const Header = styled.header`
 export const HeaderCont = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
   position: relative;
   display: flex;
   margin: 0 auto;
@@ -19,6 +18,7 @@ export const HeaderCont = styled.div`
   }
 
   @media (min-width: 1200px) {
+    justify-content: space-between;
     max-width: 1158px;
   }
 `;
@@ -27,4 +27,13 @@ export const LangCont = styled.div`
   position: relative;
   height: 20px;
   width: 20px;
+  margin-right: 50px;
+
+  @media (min-width: 768px) {
+    margin-right: 120px;
+  }
+
+  @media (min-width: 1200px) {
+    margin-right: 0;
+  }
 `;

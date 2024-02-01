@@ -7,6 +7,7 @@ import App from './components/App/App';
 import { store, persistor } from './redux/store';
 // eslint-disable-next-line
 import i18n from './helpers/translator';
+import NavState from 'context/navState';
 
 import 'utils/fonts';
 import './index.css';
@@ -16,7 +17,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <Provider store={store}>
       <PersistGate persistor={persistor}>
         <BrowserRouter>
-          <App />
+          <NavState>
+            <App />
+          </NavState>
         </BrowserRouter>
       </PersistGate>
     </Provider>
