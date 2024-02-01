@@ -10,9 +10,9 @@ const SideMenu = ({ children }) => {
     <AnimatePresence>
       {isMenuOpen && (
         <SideMenuCont
-          initial={{ opacity: 0, right: '-100%' }}
-          animate={{ opacity: 1, right: 0 }}
-          exit={{ opacity: 0, right: '-100%' }}
+          initial={{ right: '-100%' }}
+          animate={{ right: 0 }}
+          exit={{ right: '-100%', transition: { delay: 0.2 } }}
           transition={{ duration: 0.3 }}
         >
           {children}
