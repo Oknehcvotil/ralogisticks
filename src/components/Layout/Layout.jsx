@@ -1,6 +1,5 @@
 import { Outlet, useParams, Navigate } from 'react-router-dom';
 import { Suspense } from 'react';
-import { NavLink } from 'react-router-dom';
 import useChangeLanguage from 'hooks/useChangeLanguage ';
 import AppBar from 'components/AppBar/AppBar';
 

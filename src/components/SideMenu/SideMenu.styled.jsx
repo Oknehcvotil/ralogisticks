@@ -6,10 +6,12 @@ export const SideMenuCont = styled(motion.nav)`
   width: 70%;
   max-width: 100%;
   top: 85px;
-  background-color: #f4f4f4;
+
+  background: rgb(230 231 255 / 69%);
   height: 100vh;
 
   @media (min-width: 768px) {
+    width: 50%;
     top: 71px;
   }
 `;

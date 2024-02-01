@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 
 export const Header = styled.header`
   padding: 20px 0;
+  background: linear-gradient(to right, #ecedff1a, #8c8cff);
 `;
 
 export const HeaderCont = styled.div`
@@ -10,12 +11,12 @@ export const HeaderCont = styled.div`
   position: relative;
   display: flex;
   margin: 0 auto;
-  max-width: 426px;
-  padding: 0 10px;
+  padding: 0 15px;
+  width: 100%;
 
-  @media (min-width: 768px) {
+  /* @media (min-width: 768px) {
     max-width: 766px;
-  }
+  } */
 
   @media (min-width: 1200px) {
     justify-content: space-between;
