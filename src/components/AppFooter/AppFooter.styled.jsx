@@ -6,13 +6,12 @@ export const Footer = styled.footer`
   align-items: center;
   background-color: #2e2f42;
   padding: 50px 0;
-  position: fixed;
   bottom: 0;
   width: 100%;
   gap: 50px;
 
   @media (min-width: 1200px) {
-    padding: 120px 0 60px 0;
+    padding: 100px 0 50px 0;
   }
 `;
 
@@ -23,7 +22,7 @@ export const FooterCont = styled.div`
   width: 100%;
   gap: 50px;
   margin: 0 auto;
-  padding: 15px;
+  padding: 0 15px;
 
   @media (min-width: 768px) {
     flex-direction: row;

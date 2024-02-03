@@ -3,7 +3,8 @@ import { motion } from 'framer-motion';
 
 export const SubmenuSection = styled(motion.div)`
   height: 300px;
-  background: linear-gradient(to right, #ecedff1a, #8c8cff);
+  background: rgb(230 231 255 / 70%);
+  /* background: linear-gradient(to right, #ecedff1a, #8c8cff); */
 `;
 
 export const SubmenuCont = styled.div`

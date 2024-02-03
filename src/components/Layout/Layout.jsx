@@ -3,6 +3,7 @@ import { Suspense } from 'react';
 import useChangeLanguage from 'hooks/useChangeLanguage ';
 import AppBar from 'components/AppBar/AppBar';
 import AppFooter from 'components/AppFooter/AppFooter';
+import { Main, Overlay } from './Layout.styled';
 
 const Layout = () => {
   const { language } = useParams();
@@ -14,17 +15,17 @@ const Layout = () => {
   }
 
   return (
-    <>
+    <Overlay>
       <AppBar />
 
-      <main>
+      <Main>
         <Suspense fallback={'loading...'}>
           <Outlet />
         </Suspense>
-      </main>
+      </Main>
 
       <AppFooter />
-    </>
+    </Overlay>
   );
 };
 

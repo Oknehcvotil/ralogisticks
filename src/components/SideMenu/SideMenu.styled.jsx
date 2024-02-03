@@ -7,13 +7,13 @@ export const SideMenuCont = styled(motion.aside)`
   max-width: 100%;
   top: 85px;
   z-index: 900;
-
-  background: rgb(230 231 255 / 100%);
+  background: rgb(230 231 255 / 90%);
   height: calc(100vh - 105px);
   height: -webkit-calc(100vh - 105px);
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  padding-top: 70px;
 
   @media (min-width: 768px) {
     height: calc(100vh - 91px);

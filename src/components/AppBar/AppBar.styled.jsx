@@ -27,7 +27,7 @@ export const HeaderCont = styled.div`
 
 export const LangCont = styled.div`
   position: relative;
-  height: 23px;
+  height: 21px;
   width: 22px;
   margin-right: 50px;
 
