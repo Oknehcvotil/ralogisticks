@@ -11,8 +11,17 @@ import CustomsCLearancePage from 'pages/CustomsCLearancePage/CustomsCLearancePag
 import CargoInsurancePage from 'pages/CargoInsurancePage/CargoInsurancePage';
 import NotFoundPage from 'pages/NotFoundPage/NotFoundPage';
 import DefaultLanguageRoute from 'components/DefaultLanguageRoute/DefaultLanguageRoute';
+import { useTranslation } from 'react-i18next';
+import { useEffect } from 'react';
 
 const App = () => {
+  const { t, i18n } = useTranslation();
+
+  useEffect(() => {
+    document.documentElement.lang = i18n.language;
+    document.title = t('companyName');
+  }, [i18n.language, t]);
+
   return (
     <Routes>
       <Route path="/" element={<DefaultLanguageRoute defaultLanguage="ua" />} />

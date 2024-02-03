@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 
 export const LanguageList = styled.ul`
   position: absolute;
+  z-index: 1000;
   cursor: pointer;
   text-transform: uppercase;
   font-size: 15px;

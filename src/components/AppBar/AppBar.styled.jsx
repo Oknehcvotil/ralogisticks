@@ -9,7 +9,6 @@ export const HeaderCont = styled.div`
   display: flex;
   align-items: center;
   position: relative;
-  display: flex;
   margin: 0 auto;
   padding: 0 15px;
   width: 100%;
@@ -26,8 +25,8 @@ export const HeaderCont = styled.div`
 
 export const LangCont = styled.div`
   position: relative;
-  height: 20px;
-  width: 20px;
+  height: 23px;
+  width: 22px;
   margin-right: 50px;
 
   @media (min-width: 768px) {

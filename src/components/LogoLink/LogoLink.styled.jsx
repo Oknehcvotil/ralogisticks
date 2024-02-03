@@ -18,12 +18,11 @@ export const Link = styled(RouterLink)`
     flex-direction: row;
     align-items: center;
     gap: 10px;
-    font-size: 12px;
+    font-size: 30px;
   }
 
   @media (min-width: 1200px) {
     margin-right: 0;
-    font-size: 30px;
   }
 
   :hover,
