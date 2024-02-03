@@ -2,11 +2,8 @@
   --main-text-color: #1a191c;
   --title-color: #282b47;
   --logo-color: #4343e5;
+  --footer-text-color: #f3e9e9;
 
-  --main-color: #adb8ba;
-  --secondary-color: #ea725d;
-
-  --head-bcg: #3a3e3e;
   --accent-background-color: #2f303a;
   --secondary-background-color: #f4f4fd;
 }
@@ -46,10 +43,14 @@
   src: url('assets/fonts/OpenSans/OpenSans-Bold.ttf');
 }
 
+html,
 body {
   margin: 0;
+  padding: 0;
   font-family: 'OpenSans', sans-serif;
   font-size: 12px;
+  height: 100%;
+  min-height: 100%;
 }
 
 code {

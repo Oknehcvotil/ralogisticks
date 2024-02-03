@@ -12,5 +12,9 @@
       "customs": "customs services",
       "insurance": "cargo insurance"
     }
-  }
+  },
+"location":{
+  "homeCountry": "Ukraine",
+  "homeCity": "Odesa"
+}
 }

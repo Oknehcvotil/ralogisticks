@@ -12,5 +12,9 @@
       "customs": "таможенные услуги",
       "insurance": "страхование грузов"
     }
+  },
+  "location": {
+    "homeCountry": "Украина",
+    "homeCity": "Одесса"
   }
 }

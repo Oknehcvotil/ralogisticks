@@ -1,4 +1,4 @@
-import sprite from '../../assets/icons/sprite.svg';
+import Icon from 'components/Icon/Icon';
 import { SubmenuNavItemCont } from './SubmenuNavItem.styled';
 import { useTranslation } from 'react-i18next';
 
@@ -7,9 +7,7 @@ const SubmenuNavItem = ({ id, children }) => {
 
   return (
     <SubmenuNavItemCont>
-      <svg width="90" height="55">
-        <use href={sprite + id}></use>
-      </svg>
+      <Icon width='90' height='55' iconName={id} />
       {t(children)}
     </SubmenuNavItemCont>
   );

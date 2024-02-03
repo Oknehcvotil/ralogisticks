@@ -58,12 +58,14 @@ const AppBar = () => {
           )}
         </HeaderCont>
       </Header>
-      
-      <Submenu
-        isOpen={isSubmenuOpen}
-        onClick={toggleSubmenu}
-        submenuRef={submenuRef}
-      />
+
+      {isSubmenuOpen && isDesktop && (
+        <Submenu
+          isOpen={isSubmenuOpen}
+          onClick={toggleSubmenu}
+          submenuRef={submenuRef}
+        />
+      )}
     </>
   );
 };

@@ -13,10 +13,6 @@ export const HeaderCont = styled.div`
   padding: 0 15px;
   width: 100%;
 
-  /* @media (min-width: 768px) {
-    max-width: 766px;
-  } */
-
   @media (min-width: 1200px) {
     justify-content: space-between;
     max-width: 1158px;
