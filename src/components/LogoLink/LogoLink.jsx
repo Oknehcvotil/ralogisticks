@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
-import sprite from '../../assets/icons/sprite.svg';
 import { useTranslation } from 'react-i18next';
 import { Link } from './LogoLink.styled';
+import logo from '../../assets/images/logo/ralogistick_logo.png';
 
 const LogoLink = () => {
   const { language } = useParams();
@@ -9,9 +9,7 @@ const LogoLink = () => {
 
   return (
     <Link to={`/${language}`}>
-      <svg width="84" height="51">
-        <use href={sprite + '#icon-logo'}></use>
-      </svg>
+      <img src={logo} alt="RA LOGISTICS" width="84" height="51" />
       {t('companyName')}
     </Link>
   );

@@ -10,7 +10,7 @@ export const Link = styled(RouterLink)`
   color: var(--logo-color);
   letter-spacing: 0.1em;
 
-  svg {
+  img {
     transition: transform 100ms ease-in-out;
   }
 
@@ -27,7 +27,7 @@ export const Link = styled(RouterLink)`
 
   :hover,
   :focus {
-    svg {
+    img {
       transform: scale(1.05);
     }
   }
