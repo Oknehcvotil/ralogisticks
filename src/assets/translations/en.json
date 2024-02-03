@@ -1,4 +1,16 @@
 {
   "companyName": "RA LOGISTICS",
-  "welcomText": "Welcome to {{companyName}} - Your Reliable Partner in the World of Auto Transportation!"
+  "welcomText": "Welcome to {{companyName}} - Your Reliable Partner in the World of Auto Transportation!",
+  "navigation": {
+    "about": "About us",
+    "contacts": "contacts",
+    "services": {
+      "name":"services",
+      "international": "international transportation",
+      "seaShipping": "ocean freight",
+      "multimodal": "multimodal transportation",
+      "customs": "customs services",
+      "insurance": "cargo insurance"
+    }
+  }
 }

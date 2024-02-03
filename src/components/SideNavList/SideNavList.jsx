@@ -4,6 +4,7 @@ import { MenuContext } from 'context/navState';
 import { NavListCont } from './SideNavList.styled';
 import MenuItem from 'components/MenuItem/MenuItem';
 import SideServicesMenuItem from 'components/SideServicesMenuItem/SideServicesMenuItem';
+import { useTranslation } from 'react-i18next';
 
 const listVariants = {
   open: {
@@ -40,6 +41,7 @@ const itemVariants = {
 const SideNavList = () => {
   const { language } = useParams();
   const { isMenuOpen, toggleMenuMode } = useContext(MenuContext);
+  const { t } = useTranslation();
 
   const clickHandler = () => {
     if (isMenuOpen) {
@@ -52,23 +54,23 @@ const SideNavList = () => {
   const servicesRoutes = [
     {
       path: `/${language}/services/international-transportation`,
-      label: 'International Transportation',
+      label: 'navigation.services.international',
     },
     {
       path: `/${language}/services/sea-shipping`,
-      label: 'Sea Shipping',
+      label: 'navigation.services.seaShipping',
     },
     {
       path: `/${language}/services/multimodal-transportation`,
-      label: 'multimodal transportation',
+      label: 'navigation.services.multimodal',
     },
     {
       path: `/${language}/services/customs-clearance`,
-      label: 'customs clearance',
+      label: 'navigation.services.customs',
     },
     {
       path: `/${language}/services/cargo-insurance`,
-      label: 'cargo insurance',
+      label: 'navigation.services.insurance',
     },
   ];
 
@@ -84,13 +86,16 @@ const SideNavList = () => {
           variants={itemVariants}
           onClick={clickHandler}
         >
-          about
+          {t('navigation.about')}
         </MenuItem>
 
         {/* services */}
 
-        <SideServicesMenuItem serviceRoutes={servicesRoutes}>
-          Services
+        <SideServicesMenuItem
+          serviceRoutes={servicesRoutes}
+          onClick={clickHandler}
+        >
+          {t('navigation.services.name')}
         </SideServicesMenuItem>
 
         {/* services */}
@@ -100,7 +105,7 @@ const SideNavList = () => {
           variants={itemVariants}
           onClick={clickHandler}
         >
-          contacts
+          {t('navigation.contacts')}
         </MenuItem>
       </NavListCont>
     </nav>

@@ -1,5 +1,6 @@
 import MenuItem from 'components/MenuItem/MenuItem';
 import { ServicesListCont } from './SideServicesList.styled';
+import { useTranslation } from 'react-i18next';
 
 const listVariants = {
   open: {
@@ -34,6 +35,8 @@ const itemVariants = {
 };
 
 const SideServicesList = ({ servicesOpen, serviceRoutes, onClick }) => {
+  const { t } = useTranslation();
+
   return (
     <ServicesListCont
       variants={listVariants}
@@ -47,7 +50,7 @@ const SideServicesList = ({ servicesOpen, serviceRoutes, onClick }) => {
           onClick={onClick}
           variants={itemVariants}
         >
-          {route.label}
+          {t(route.label)}
         </MenuItem>
       ))}
     </ServicesListCont>

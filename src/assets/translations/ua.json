@@ -1,4 +1,16 @@
 {
   "companyName": "РА ЛОГІСТИК",
-  "welcomText": "Welcome to {{companyName}} - Your Reliable Partner in the World of Auto Transportation!"
+  "welcomText": "Welcome to {{companyName}} - Your Reliable Partner in the World of Auto Transportation!",
+  "navigation": {
+    "about": "про нас",
+    "contacts": "контакти",
+    "services": {
+      "name": "послуги",
+      "international": "міжнародні перевезення",
+      "seaShipping": "морські перевезення",
+      "multimodal": "мультимодальні перевезення",
+      "customs": "митно-брокерські послуги",
+      "insurance": "страхування вантажів"
+    }
+  }
 }

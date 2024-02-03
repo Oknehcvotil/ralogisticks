@@ -25,6 +25,36 @@ export const SubmenuCont = styled.div`
 
 export const SubmenuList = styled.ul`
   display: flex;
-  gap: 20px;
+  gap: 50px;
   align-items: center;
+  text-transform: uppercase;
+  font-family: 'HeliosCond', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+
+  svg {
+    fill: var(--logo-color);
+  }
+
+  a {
+    color: var(--logo-color);
+
+    &.active {
+      color: var(--title-color);
+
+      svg {
+        fill: var(--title-color);
+      }
+    }
+
+    &.active::after {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 2px;
+      bottom: -8px;
+      left: 0;
+      background-color: var(--title-color);
+    }
+  }
 `;

@@ -1,6 +1,7 @@
 import { SubmenuSection, SubmenuCont, SubmenuList } from './Submenu.styled';
 import { useParams } from 'react-router-dom';
 import MenuItem from 'components/MenuItem/MenuItem';
+import SubmenuNavItem from 'components/SubmenuNavItem/SubmenuNavItem';
 
 const submenuVariants = {
   hidden: { height: 0, opacity: 0 },
@@ -13,23 +14,28 @@ const Submenu = ({ isOpen, onClick, submenuRef }) => {
   const servicesRoutes = [
     {
       path: `/${language}/services/international-transportation`,
-      label: 'International Transportation',
+      label: 'navigation.services.international',
+      id: '#icon-container-truck',
     },
     {
       path: `/${language}/services/sea-shipping`,
-      label: 'Sea Shipping',
+      label: 'navigation.services.seaShipping',
+      id: '#icon-vessel',
     },
     {
       path: `/${language}/services/multimodal-transportation`,
-      label: 'multimodal transportation',
+      label: 'navigation.services.multimodal',
+      id: '#icon-multimodal',
     },
     {
       path: `/${language}/services/customs-clearance`,
-      label: 'customs clearance',
+      label: 'navigation.services.customs',
+      id: '#icon-customs',
     },
     {
       path: `/${language}/services/cargo-insurance`,
-      label: 'cargo insurance',
+      label: 'navigation.services.insurance',
+      id: '#icon-insurance',
     },
   ];
 
@@ -45,7 +51,9 @@ const Submenu = ({ isOpen, onClick, submenuRef }) => {
         <SubmenuList>
           {servicesRoutes.map((route, index) => (
             <MenuItem key={index} to={route.path} onClick={onClick}>
-              {route.label}
+              <SubmenuNavItem key={route.id} id={route.id}>
+                {route.label}
+              </SubmenuNavItem>
             </MenuItem>
           ))}
         </SubmenuList>

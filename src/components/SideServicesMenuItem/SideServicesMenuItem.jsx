@@ -16,7 +16,11 @@ const itemVariants = {
   },
 };
 
-const SideServicesMenuItem = ({ children, serviceRoutes }) => {
+const SideServicesMenuItem = ({
+  children,
+  serviceRoutes,
+  onClick ,
+}) => {
   const [isServicesOpen, setServicesOpen] = useState(false);
   const servicesRef = useRef(null);
 
@@ -43,7 +47,7 @@ const SideServicesMenuItem = ({ children, serviceRoutes }) => {
       <SideServicesList
         servicesOpen={isServicesOpen}
         serviceRoutes={serviceRoutes}
-        onClick={toggleServices}
+        onClick={onClick}
       />
     </motion.li>
   );
