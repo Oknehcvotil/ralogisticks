@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { NavigationList } from './Navigation.styled';
 import { useTranslation } from 'react-i18next';
 
-const Navigation = ({ onClick }) => {
+const Navigation = ({ onClick, buttonRef }) => {
   const { language } = useParams();
   const { t } = useTranslation();
 
@@ -17,7 +17,12 @@ const Navigation = ({ onClick }) => {
     <nav>
       <NavigationList>
         {menuItems.map((item, index) => (
-          <MenuItem key={index} to={item.to} onClick={item.onClick}>
+          <MenuItem
+            key={index}
+            to={item.to}
+            onClick={item.onClick}
+            buttonRef={buttonRef}
+          >
             {t(item.label)}
           </MenuItem>
         ))}
