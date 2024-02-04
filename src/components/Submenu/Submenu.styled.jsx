@@ -15,18 +15,15 @@ export const SubmenuCont = styled.div`
   padding: 30px 15px;
   width: 100%;
 
-  /* @media (min-width: 768px) {
-    max-width: 766px;
-  } */
-
-  @media (min-width: 1200px) {
-    max-width: 1158px;
+  @media (min-width: 1045px) {
+    max-width: 1024px;
   }
 `;
 
 export const SubmenuList = styled.ul`
   display: flex;
-  gap: 50px;
+  justify-content: space-between;
+  width: 100%;
   align-items: center;
   text-transform: uppercase;
   font-family: 'HeliosCond', sans-serif;

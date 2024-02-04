@@ -21,7 +21,7 @@ export const Link = styled(RouterLink)`
     font-size: 30px;
   }
 
-  @media (min-width: 1200px) {
+  @media (min-width: 1045px) {
     margin-right: 0;
   }
 

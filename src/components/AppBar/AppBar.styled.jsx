@@ -19,9 +19,9 @@ export const HeaderCont = styled.div`
 
   width: 100%;
 
-  @media (min-width: 1200px) {
+  @media (min-width: 1045px) {
     justify-content: space-between;
-    max-width: 1158px;
+    max-width: 1024px;
   }
 `;
 
@@ -35,7 +35,7 @@ export const LangCont = styled.div`
     margin-right: 120px;
   }
 
-  @media (min-width: 1200px) {
+  @media (min-width: 1045px) {
     margin-right: 0;
   }
 `;

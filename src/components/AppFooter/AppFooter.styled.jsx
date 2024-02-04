@@ -11,7 +11,7 @@ export const Footer = styled.footer`
   gap: 50px;
   flex: 0 0 auto;
 
-  @media (min-width: 1200px) {
+  @media (min-width: 1045px) {
     padding: 100px 0 50px 0;
     gap: 70px;
   }
@@ -33,10 +33,10 @@ export const FooterCont = styled.div`
     align-items: flex-start;
   }
 
-  @media (min-width: 1200px) {
+  @media (min-width: 1045px) {
     justify-content: space-between;
     gap: 0;
-    max-width: 1158px;
+    max-width: 1024px;
   }
 `;
 

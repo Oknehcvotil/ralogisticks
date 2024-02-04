@@ -18,7 +18,7 @@ const AppBar = () => {
   const submenuRef = useRef(null);
 
   const windowSize = useResize();
-  const isDesktop = windowSize.width >= 1200;
+  const isDesktop = windowSize.width >= 1045;
 
   const toggleSubmenu = () => {
     setIsSubmenuOpen(!isSubmenuOpen);
