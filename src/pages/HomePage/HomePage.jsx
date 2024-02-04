@@ -1,10 +1,16 @@
+import ServicesSlider from 'components/ServicesSlider/ServicesSlider';
 import GoogleMap from 'components/GoogleMap/GoogleMap';
 
 const HomePage = () => {
   return (
-    <section>
-      <GoogleMap />
-    </section>
+    <>
+      <section>
+        <ServicesSlider />
+      </section>
+      <section>
+        <GoogleMap />
+      </section>
+    </>
   );
 };
 
