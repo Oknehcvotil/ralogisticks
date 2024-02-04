@@ -9,6 +9,7 @@ export const Footer = styled.footer`
   bottom: 0;
   width: 100%;
   gap: 50px;
+  flex: 0 0 auto;
 
   @media (min-width: 1200px) {
     padding: 100px 0 50px 0;

@@ -35,7 +35,7 @@ const GoogleMap = () => {
           title="Google Maps"
           src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2746.916676965662!2d30.7195941!3d46.4899623!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40c631ea1a1e102b%3A0xdaa005d39d8ca442!2z0YPQuy4g0J3QvtCy0L7RgdC10LvRjNGB0LrQvtCz0L4sIDMyLCDQntC00LXRgdGB0LAsINCe0LTQtdGB0YHQutCw0Y8g0L7QsdC70LDRgdGC0YwsIDY1MDAw!5e0!3m2!1sru!2sua!4v1707054427689!5m2!1sru!2sua"
           width="100%"
-          height="450"
+          height="100%"
           style={{ border: 0 }}
           allowFullScreen=""
           loading="lazy"
