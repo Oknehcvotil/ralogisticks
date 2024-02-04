@@ -12,7 +12,7 @@ export const SubmenuCont = styled.div`
   align-items: center;
   justify-content: center;
   margin: 0 auto;
-  padding: 30px 15px 0;
+  padding: 30px 15px;
   width: 100%;
 
   /* @media (min-width: 768px) {
