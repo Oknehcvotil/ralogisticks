@@ -12,6 +12,7 @@ export const Footer = styled.footer`
 
   @media (min-width: 1200px) {
     padding: 100px 0 50px 0;
+    gap: 70px;
   }
 `;
 
@@ -57,6 +58,7 @@ export const DeveloperCont = styled.div`
   flex-shrink: 0;
   font-weight: 600;
   color: rgba(255, 255, 255, 0.4);
+  font-size: 14px;
 
   & > a {
     color: rgba(255, 255, 255, 0.8);
