@@ -10,7 +10,18 @@ export const FormStyled = styled(Form)`
   margin: 0 auto;
 
   @media screen and (min-width: 768px) {
-    max-width: 100%;
+    width: 100%;
+    max-width: 1024px;
+
+    &.contact-page_form .input-container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &.contact-page_form {
+      gap: 20px;
+      margin: 0;
+    }
   }
 `;
 

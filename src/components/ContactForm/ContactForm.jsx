@@ -10,7 +10,7 @@ import FormBtn from 'components/FormBtn/FormBtn';
 const emailRegex = /^\w+(\.?\w+)?@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
 const phoneRegex = /^(\+\d{6,})?(\d{6,})$/;
 
-const ContactForm = () => {
+const ContactForm = ({ className }) => {
   const { t } = useTranslation();
 
   const ContactSchema = Yup.object().shape({
@@ -39,11 +39,6 @@ const ContactForm = () => {
     resetForm();
   };
 
-  // const handleChange = e => {
-  //   const { name, value } = e.target;
-  //   setFormData({ ...formData, [name]: value });
-  // };
-
   return (
     <Formik
       initialValues={{
@@ -55,8 +50,8 @@ const ContactForm = () => {
       validationSchema={ContactSchema}
       onSubmit={handleSubmit}
     >
-      <FormStyled>
-        <InputContainer>
+      <FormStyled className={className}>
+        <InputContainer className='input-container'>
           <Field
             name="name"
             label={t('form.labels.name')}

@@ -15,9 +15,34 @@ export const ContactsList = styled.ul`
   flex-direction: column;
   margin: 0 auto 50px;
   max-width: 375px;
+  color: var(--main-text-color);
+
+  @media (min-width: 768px) {
+    font-size: 14px;
+    justify-content: space-between;
+    margin: 0;
+    flex-basis: calc(100% / 2);
+  }
+
+  svg {
+    fill: var(--logo-color);
+  }
 
   li:not(:last-of-type) {
     margin-bottom: 40px;
+  }
+
+  li a {
+    gap: 10px;
+    color: var(--main-text-color);
+  }
+
+  li:nth-of-type(2),
+  li:nth-of-type(3) {
+    svg {
+      fill: transparent;
+      stroke: var(--logo-color);
+    }
   }
 `;
 
@@ -25,10 +50,20 @@ export const ContactsListItem = styled.li`
   display: flex;
   gap: 10px;
   align-items: center;
+
+  p {
+    max-width: 200px;
+  }
 `;
 
-export const PhoneList = styled.ul`
-  display: flex;
-  gap: 10px;
-  align-items: center;
+export const FlexBox = styled.div`
+  @media (min-width: 768px) {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+`;
+
+export const FormCont = styled.div`
+  flex-basis: calc(100% / 2);
 `;
