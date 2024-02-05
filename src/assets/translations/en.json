@@ -19,12 +19,27 @@
     "homeCity": "Odesa"
   },
   "titles": {
-    "ourServices": "our services"
+    "ourServices": "our services",
+    "request": "send a request"
   },
   "sections": {
     "aboutUs": {
       "aboutUsFirst": "{{companyName}} - company engaged in international freight transportation. The key to the company's success lies in a meticulously selected professional team, where each employee is thoroughly familiar with their responsibilities and excels in their role down to the smallest detail.",
       "aboutUsSecond": "The company has been engaged in freight transportation across Ukraine for many years and also delivers goods to numerous countries around the world."
+    }
+  },
+  "form": {
+    "messeges": {
+      "required": "Required field",
+      "invalid": {
+        "phone": "Invalid phone format",
+        "email": "Invalid email format"
+      }
+    },
+    "labels": {
+      "name": "Name",
+      "tel": "Phone",
+      "message":"Message"
     }
   }
 }

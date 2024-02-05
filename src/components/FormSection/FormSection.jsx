@@ -1,15 +1,13 @@
+import ContactForm from 'components/ContactForm/ContactForm';
 import Title from 'components/Title/Title';
 import { useTranslation } from 'react-i18next';
-import { AboutUsCont } from './AboutUsSection.styled';
+import { FormSectionCont } from './FormSection.styled';
 
-const AboutUsSection = () => {
+const FormSection = () => {
   const { t } = useTranslation();
-  const text = t('sections.aboutUs.aboutUsFirst', {
-    companyName: t('companyName'),
-  });
 
   return (
-    <AboutUsCont>
+    <FormSectionCont>
       <Title
         level={2}
         style={{
@@ -21,12 +19,11 @@ const AboutUsSection = () => {
           color: 'var(--title-color)',
         }}
       >
-        {t('fullCompanyName')}
+        {t('titles.request')}
       </Title>
-      <p>{text}</p>
-      <p>{t('sections.aboutUs.aboutUsSecond')}</p>
-    </AboutUsCont>
+      <ContactForm />
+    </FormSectionCont>
   );
 };
 
-export default AboutUsSection;
+export default FormSection;

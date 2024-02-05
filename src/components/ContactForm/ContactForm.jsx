@@ -1,6 +1,27 @@
 import { useState } from 'react';
+import CustomInput from 'components/CustomInput/CustomInput';
+import { Formik, Field } from 'formik';
+import { FormStyled } from './ContactForm.styled';
+import * as Yup from 'yup';
+import { useTranslation } from 'react-i18next';
+
+const emailRegex = /^\w+(\.?\w+)?@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+const phoneRegex = /^(\+\d{6,})?(\d{6,})$/;
 
 const ContactForm = () => {
+  const { t } = useTranslation();
+
+  const ContactSchema = Yup.object().shape({
+    name: Yup.string().required(t('form.messeges.required')),
+    phone: Yup.string()
+      .matches(phoneRegex, t('form.messeges.invalid.phone'))
+      .required(t('form.messeges.required')),
+    email: Yup.string()
+      .matches(emailRegex, t('form.messeges.invalid.email'))
+      .required(t('form.messeges.required')),
+    message: Yup.string(),
+  });
+
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -8,72 +29,63 @@ const ContactForm = () => {
     message: '',
   });
 
+  const handleSubmit = (values, { resetForm }) => {
+    setFormData(values);
+
+    resetForm();
+  };
+
   const handleChange = e => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    // Добавьте код для отправки данных
-    console.log('Отправлено:', formData);
-
-    // Очистить форму после отправки
-    setFormData({
-      name: '',
-      phone: '',
-      email: '',
-      message: '',
-    });
-  };
-
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Имя:
-        <input
-          type="text"
+    <Formik
+      initialValues={{
+        name: '',
+        phone: '',
+        email: '',
+        message: '',
+      }}
+      validationSchema={ContactSchema}
+      onSubmit={handleSubmit}
+    >
+      <FormStyled>
+        <Field
           name="name"
-          value={formData.name}
-          onChange={handleChange}
-          required
+          label={t('form.labels.name')}
+          type="text"
+          autoComplete="off"
+          component={CustomInput}
         />
-      </label>
-      <br />
 
-      <label>
-        Телефон:
-        <input
-          type="tel"
+        <Field
           name="phone"
-          value={formData.phone}
-          onChange={handleChange}
+          label={t('form.labels.tel')}
+          type="tel"
+          autoComplete="off"
+          component={CustomInput}
         />
-      </label>
-      <br />
 
-      <label>
-        Имейл:
-        <input
-          type="email"
+        <Field
           name="email"
-          value={formData.email}
-          onChange={handleChange}
+          label="Email"
+          type="email"
+          autoComplete="off"
+          component={CustomInput}
         />
-      </label>
-      <br />
 
-      <label>
-        Сообщение:
-        <textarea
+        {/* <Field
           name="message"
-          value={formData.message}
-          onChange={handleChange}
-        />
-      </label>
-      <br />
-
-      <button type="submit">Отправить</button>
-    </form>
+          label={t('form.labels.message')}
+          type="text"
+          autoComplete="off"
+          component={CustomInput}
+        /> */}
+      </FormStyled>
+    </Formik>
   );
 };
+
+export default ContactForm;
