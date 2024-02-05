@@ -40,13 +40,37 @@ export const FooterCont = styled.div`
   }
 `;
 
+export const FooterCompanyNameCont = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media (min-width: 768px) {
+    display: block;
+  }
+`;
+
 export const FooterCompanyName = styled.p`
   font-weight: 700;
   font-size: 14px;
   color: var(--footer-text-color);
+  margin-bottom: 5px;
 
-  @media (min-width: 1200px) {
+  @media (min-width: 768px) {
+    margin-bottom: 10px;
+  }
+
+  @media (min-width: 1045px) {
     font-size: 16px;
+  }
+`;
+
+export const FooterCompanyYear = styled.p`
+  font-size: 12px;
+  color: var(--footer-text-color);
+
+  @media (min-width: 1045px) {
+    font-size: 14px;
   }
 `;
 

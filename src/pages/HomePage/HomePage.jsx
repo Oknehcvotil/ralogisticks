@@ -2,6 +2,7 @@ import ServicesSlider from 'components/ServicesSlider/ServicesSlider';
 import GoogleMap from 'components/GoogleMap/GoogleMap';
 import Title from 'components/Title/Title';
 import OurServicesSection from 'components/OurServicesSection/OurServicesSection';
+import AboutUsSection from 'components/AboutUsSection/AboutUsSection';
 
 const HomePage = () => {
   return (
@@ -23,7 +24,8 @@ const HomePage = () => {
         </Title>
         <ServicesSlider />
       </section>
-      <OurServicesSection/>
+      <AboutUsSection />
+      <OurServicesSection />
       <section>
         <GoogleMap />
       </section>

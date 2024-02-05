@@ -4,12 +4,16 @@ import {
   FooterCont,
   FooterCompanyName,
   FooterContactsList,
+  FooterCompanyYear,
+  FooterCompanyNameCont,
 } from './AppFooter.styled';
 import { useTranslation } from 'react-i18next';
 import ContactItem from 'components/ContactItem/ContactItem';
 
 const AppFooter = () => {
   const { t } = useTranslation();
+
+  const currentYear = new Date().getFullYear();
 
   const contactItems = [
     {
@@ -32,13 +36,14 @@ const AppFooter = () => {
   return (
     <Footer>
       <FooterCont>
-        <div>
+        <FooterCompanyNameCont>
           <FooterCompanyName>
             {`${t('location.homeCountry')}, ${t('location.homeCity')}, ${t(
               'companyName'
             )}`}
           </FooterCompanyName>
-        </div>
+          <FooterCompanyYear>© 2016 - {currentYear}</FooterCompanyYear>
+        </FooterCompanyNameCont>
         <address>
           <FooterContactsList>
             {contactItems.map((item, index) => (

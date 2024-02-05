@@ -1,11 +1,12 @@
 {
   "companyName": "RA LOGISTICS",
+  "fullCompanyName": "RA LOGISTICS LLC",
   "welcomText": "Welcome to {{companyName}} - Your Reliable Partner in the World of Auto Transportation!",
   "navigation": {
     "about": "About us",
     "contacts": "contacts",
     "services": {
-      "name":"services",
+      "name": "services",
       "international": "international transportation",
       "seaShipping": "ocean freight",
       "multimodal": "multimodal transportation",
@@ -13,11 +14,17 @@
       "insurance": "cargo insurance"
     }
   },
-"location":{
-  "homeCountry": "Ukraine",
-  "homeCity": "Odesa"
-},
-"titles":{
-  "ourServices":"our services"
-}
+  "location": {
+    "homeCountry": "Ukraine",
+    "homeCity": "Odesa"
+  },
+  "titles": {
+    "ourServices": "our services"
+  },
+  "sections": {
+    "aboutUs": {
+      "aboutUsFirst": "{{companyName}} - company engaged in international freight transportation. The key to the company's success lies in a meticulously selected professional team, where each employee is thoroughly familiar with their responsibilities and excels in their role down to the smallest detail.",
+      "aboutUsSecond": "The company has been engaged in freight transportation across Ukraine for many years and also delivers goods to numerous countries around the world."
+    }
+  }
 }
