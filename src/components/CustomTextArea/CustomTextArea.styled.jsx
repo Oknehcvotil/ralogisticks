@@ -73,7 +73,8 @@ export const StyledTextarea = styled.textarea`
     }
   `}
 
-	  ${mq[1]} {
+  ${mq[1]} {
+    height: 110px;
     font-size: 16px;
     line-height: 1.5;
   }

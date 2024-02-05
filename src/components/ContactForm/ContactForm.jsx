@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import CustomInput from 'components/CustomInput/CustomInput';
 import { Formik, Field } from 'formik';
-import { FormStyled } from './ContactForm.styled';
+import { FormStyled, InputContainer } from './ContactForm.styled';
 import * as Yup from 'yup';
 import { useTranslation } from 'react-i18next';
 import CustomTextArea from 'components/CustomTextArea/CustomTextArea';
@@ -56,29 +56,31 @@ const ContactForm = () => {
       onSubmit={handleSubmit}
     >
       <FormStyled>
-        <Field
-          name="name"
-          label={t('form.labels.name')}
-          type="text"
-          autoComplete="off"
-          component={CustomInput}
-        />
+        <InputContainer>
+          <Field
+            name="name"
+            label={t('form.labels.name')}
+            type="text"
+            autoComplete="off"
+            component={CustomInput}
+          />
 
-        <Field
-          name="phone"
-          label={t('form.labels.tel')}
-          type="tel"
-          autoComplete="off"
-          component={CustomInput}
-        />
+          <Field
+            name="phone"
+            label={t('form.labels.tel')}
+            type="tel"
+            autoComplete="off"
+            component={CustomInput}
+          />
 
-        <Field
-          name="email"
-          label="Email"
-          type="email"
-          autoComplete="off"
-          component={CustomInput}
-        />
+          <Field
+            name="email"
+            label="Email"
+            type="email"
+            autoComplete="off"
+            component={CustomInput}
+          />
+        </InputContainer>
 
         <Field
           name="message"
