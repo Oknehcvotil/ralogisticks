@@ -94,6 +94,7 @@ export const ServiceName = styled(Link)`
   font-size: 20px;
   text-transform: uppercase;
   color: #ffff;
+  font-family: 'HeliosCond', sans-serif;
   transition: color 0.3s ease-in-out;
 
   &:hover,

@@ -6,7 +6,7 @@ export const NavListCont = styled(motion.ul)`
   flex-direction: column;
   align-items: center;
   gap: 20px;
-  font-family: 'HeliosCond-Bold', sans-serif;
+  font-family: 'HeliosCond', sans-serif;
   font-weight: 700;
   text-transform: uppercase;
   font-size: 18px;

@@ -9,7 +9,7 @@ import { store, persistor } from './redux/store';
 import i18n from './helpers/translator';
 import NavState from 'context/navState';
 
-import 'utils/fonts';
+import './utils/fonts';
 import './index.css';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';

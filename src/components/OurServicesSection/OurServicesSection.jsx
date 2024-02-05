@@ -46,7 +46,7 @@ const OurServicesSection = () => {
             margin: '0 auto 50px',
             textTransform: 'uppercase',
             textAlign: 'center',
-            fontFamily: '"HeliosCond-Bold", sans-serif',
+            fontFamily: '"HeliosCond", sans-serif',
             fontSize: '40px',
             color: 'var(--title-color)',
           }}

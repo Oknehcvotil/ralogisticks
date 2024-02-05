@@ -4,7 +4,7 @@ export const NavigationList = styled.ul`
   display: flex;
   align-items: center;
   gap: 20px;
-  font-family: 'HeliosCond-Bold', sans-serif;
+  font-family: 'HeliosCond', sans-serif;
   font-weight: 700;
   text-transform: uppercase;
   font-size: 18px;

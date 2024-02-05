@@ -8,44 +8,39 @@
   --secondary-background-color: #f4f4fd;
 }
 
-h2 {
-  text-transform: uppercase;
-  text-align: center;
-}
-
 @font-face {
   font-family: 'HeliosCond';
   font-style: normal;
   font-weight: 400;
-  src: url('assets/fonts/HeliosCond/HeliosCond.ttf');
+  src: url('./assets/fonts/HeliosCond/HeliosCond.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'HeliosCond';
   font-style: normal;
   font-weight: 700;
-  src: url('assets/fonts/HeliosCond/HeliosCond-Bold.ttf');
+  src: url('./assets/fonts/HeliosCond/HeliosCond-Bold.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'OpenSans';
   font-style: normal;
   font-weight: 400;
-  src: url('assets/fonts/OpenSans/OpenSans-Regular.ttf');
+  src: url('./assets/fonts/OpenSans/OpenSans-Regular.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'OpenSans';
   font-style: normal;
   font-weight: 600;
-  src: url('assets/fonts/OpenSans/OpenSans-SemiBold.ttf');
+  src: url('./assets/fonts/OpenSans/OpenSans-SemiBold.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'OpenSans';
   font-style: normal;
   font-weight: 700;
-  src: url('assets/fonts/OpenSans/OpenSans-Bold.ttf');
+  src: url('./assets/fonts/OpenSans/OpenSans-Bold.ttf') format('truetype');
 }
 
 html,
