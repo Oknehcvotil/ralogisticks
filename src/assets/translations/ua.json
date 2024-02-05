@@ -16,11 +16,14 @@
   },
   "location": {
     "homeCountry": "Україна",
-    "homeCity": "Одеса"
+    "homeCity": "Одеса",
+    "fullAdress": "Україна, 65029, Одеса, вул. Новосельського, 32, офіс 1"
   },
+  "workHours": "Пн-Пт: 9:00 - 18:00",
   "titles": {
     "ourServices": "наші послуги",
-    "request": "відішліть запит"
+    "request": "відішліть запит",
+    "contactsPage": "контакти"
   },
   "sections": {
     "aboutUs": {

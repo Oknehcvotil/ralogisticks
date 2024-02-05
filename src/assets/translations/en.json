@@ -16,11 +16,14 @@
   },
   "location": {
     "homeCountry": "Ukraine",
-    "homeCity": "Odesa"
+    "homeCity": "Odesa",
+    "fullAdress": "Ukraine, 65029, Odesa, Novosel's'koho St, 32, office 1"
   },
+  "workHours": "Mon-Fri: 9:00 - 18:00",
   "titles": {
     "ourServices": "our services",
-    "request": "send a request"
+    "request": "send a request",
+    "contactsPage": "contacts"
   },
   "sections": {
     "aboutUs": {
@@ -39,7 +42,7 @@
     "labels": {
       "name": "Name",
       "tel": "Phone",
-      "message":"Message"
+      "message": "Message"
     },
     "btn": "send"
   }
