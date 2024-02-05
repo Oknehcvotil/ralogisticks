@@ -7,8 +7,8 @@ const SubmenuNavItem = ({ id, children }) => {
 
   return (
     <SubmenuNavItemCont>
-      <Icon width='90' height='55' iconName={id} />
-      {t(children)}
+      <Icon width="90" height="55" iconName={id} />
+      <p>{t(children)}</p>
     </SubmenuNavItemCont>
   );
 };

@@ -8,6 +8,11 @@
   --secondary-background-color: #f4f4fd;
 }
 
+h2 {
+  text-transform: uppercase;
+  text-align: center;
+}
+
 @font-face {
   font-family: 'HeliosCond';
   font-style: normal;

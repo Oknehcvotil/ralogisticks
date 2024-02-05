@@ -16,5 +16,8 @@
   "location": {
     "homeCountry": "Украина",
     "homeCity": "Одесса"
+  },
+  "titles": {
+    "ourServices": "наши услуги"
   }
 }

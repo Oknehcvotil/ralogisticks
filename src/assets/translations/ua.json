@@ -16,5 +16,8 @@
   "location": {
     "homeCountry": "Україна",
     "homeCity": "Одеса"
+  },
+  "titles": {
+    "ourServices": "наші послуги"
   }
 }
