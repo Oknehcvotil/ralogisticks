@@ -23,7 +23,8 @@
   "titles": {
     "ourServices": "our services",
     "request": "send a request",
-    "contactsPage": "contacts"
+    "contactsPage": "contacts",
+    "aboutUs": "About us"
   },
   "sections": {
     "aboutUs": {
@@ -46,5 +47,13 @@
     },
     "btn": "send",
     "submitedText": "Your message has been sent. Our manager will contact you shortly."
+  },
+  "pages": {
+    "aboutUs": {
+      "firstParagraf": "{{companyName}} - a company specializing in freight transportation worldwide. The key to the company's success lies in a carefully selected professional team, where each employee is well-versed in their job down to the smallest details. That is why we offer the most advantageous terms of cooperation, benefiting both our clients and the company itself. All company employees have extensive work experience and high qualifications, enabling them to instantly solve even complex tasks related to cargo transportation.",
+      "secondParagraf": "Among our clients, there are many small enterprises and large organizations, some of which have become our regular customers and consistently utilize our company's services. The significant number of repeat customers eloquently indicates that they trust us. A crucial component of our success remains the highest level of service. Our specialists develop a detailed cargo delivery plan, carefully monitor the entire route, ensure careful unloading, and exercise control over the cargo delivery until it reaches its recipient.",
+      "thirdParagraf": "A significant part of our work involves freight transportation by road, and if necessary, we can organize sea freight. {{companyName}} is one of the few companies in Ukraine that specializes in multimodal freight transportation. This means that depending on the chosen delivery route, our specialists arrange the transportation of one cargo using different modes of transport. The client only needs to enter into a transportation agreement with our company, and all other concerns are taken care of by our experts.",
+      "fourthParagraf": "Thanks to an individual approach to each client, the company ensures efficient and careful delivery of cargo in the shortest possible time. Our specialists calculate the optimal delivery route to ensure that the cargo arrives quickly, and the cost of such delivery is minimized. Therefore, international freight transportation with us is accessible to everyone. If you have any questions or would like to use our company's services, contact our freight forwarders, and they will provide detailed information about our collaboration terms and answer all your inquiries. The choice is always yours!"
+    }
   }
 }

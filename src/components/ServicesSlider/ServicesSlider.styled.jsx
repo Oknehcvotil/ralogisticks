@@ -33,7 +33,7 @@ export const Container = styled.div`
     li button:before {
       opacity: 1;
       font-size: 10px;
-      color: var(--title-color);
+      color: var(--footer-text-color);
     }
 
     li.slick-active button:before {
@@ -76,6 +76,19 @@ export const ImgContainer = styled.div`
   border: 3px solid var(--logo-color);
   min-height: 90px;
 
+  ::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(46, 47, 66, 0.2), rgba(46, 47, 66, 0.2));
+    /* background-color: rgba(0, 0, 0, 0.2);  */
+    z-index: 1;
+  }
+
   @media screen and (min-width: 768px) {
     min-height: 250px;
   }
@@ -96,6 +109,7 @@ export const ServiceName = styled(Link)`
   color: #ffff;
   font-family: 'HeliosCond', sans-serif;
   transition: color 0.3s ease-in-out;
+  z-index: 4;
 
   &:hover,
   &:focus {
