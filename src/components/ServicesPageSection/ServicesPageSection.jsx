@@ -14,8 +14,9 @@ const ServicesPageSection = ({ title, paragraphs, imagePath, altText }) => {
           textTransform: 'uppercase',
           textAlign: 'center',
           fontFamily: '"HeliosCond", sans-serif',
-          fontSize: '40px',
+          fontSize: '35px',
           color: 'var(--title-color)',
+          lineHeight: '40px',
         }}
       >
         {t(title)}
