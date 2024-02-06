@@ -1,6 +1,6 @@
 import ServicesPageSection from 'components/ServicesPageSection/ServicesPageSection';
 
-const CustomsCLearancePage = () => {
+const CustomsClearancePage = () => {
   const paragraphs = [
     'pages.services.customsService.firstParagraf',
     'pages.services.customsService.secondParagraf',
@@ -18,4 +18,4 @@ const CustomsCLearancePage = () => {
   );
 };
 
-export default CustomsCLearancePage;
+export default CustomsClearancePage;

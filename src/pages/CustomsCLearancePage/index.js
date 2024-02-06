@@ -1,1 +1,1 @@
-export { default } from './CustomsCLearancePage';
+export { default } from './CustomsClearancePage';

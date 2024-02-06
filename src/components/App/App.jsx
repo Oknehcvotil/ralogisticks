@@ -1,18 +1,37 @@
 import { Route, Routes, Navigate } from 'react-router-dom';
-import Layout from 'components/Layout/Layout';
-import HomePage from 'pages/HomePage/HomePage';
-import AboutUsPage from 'pages/AboutUsPage/AboutUsPage';
-import ServicesPage from 'pages/ServicesPage/ServicesPage';
-import ContactsPage from 'pages/ContactsPage/Contacts';
-import InternationalTransportationPage from 'pages/InternationalTransportationPage/InternationalShippingPage';
-import SeaShippingPage from 'pages/SeaShippingPage/SeaShippingPage';
-import MultimodalTransportationPage from 'pages/MultimodalTransportationPage/MultimodalTransportationPage';
-import CustomsCLearancePage from 'pages/CustomsCLearancePage/CustomsCLearancePage';
-import CargoInsurancePage from 'pages/CargoInsurancePage/CargoInsurancePage';
-import NotFoundPage from 'pages/NotFoundPage/NotFoundPage';
-import DefaultLanguageRoute from 'components/DefaultLanguageRoute/DefaultLanguageRoute';
 import { useTranslation } from 'react-i18next';
-import { useEffect } from 'react';
+import { lazy, useEffect } from 'react';
+
+import Layout from 'components/Layout/Layout';
+
+const HomePage = lazy(() => import('../../pages/HomePage/HomePage'));
+const AboutUsPage = lazy(() => import('../../pages/AboutUsPage/AboutUsPage'));
+const ServicesPage = lazy(() =>
+  import('../../pages/ServicesPage/ServicesPage')
+);
+const ContactsPage = lazy(() =>
+  import('../../pages/ContactsPage/ContactsPage')
+);
+const InternationalTransportationPage = lazy(() =>
+  import(
+    '../../pages/InternationalTransportationPage/InternationalShippingPage'
+  )
+);
+const SeaShippingPage = lazy(() =>
+  import('../../pages/SeaShippingPage/SeaShippingPage')
+);
+const MultimodalTransportationPage = lazy(() =>
+  import(
+    '../../pages/MultimodalTransportationPage/MultimodalTransportationPage'
+  )
+);
+const CustomsClearancePage=lazy(()=>import('../../pages/CustomsClearancePage/CustomsClearancePage'))
+const CargoInsurancePage = lazy(() =>
+  import('../../pages/CargoInsurancePage/CargoInsurancePage')
+);
+const NotFoundPage = lazy(() =>
+  import('../../pages/NotFoundPage/NotFoundPage')
+);
 
 const App = () => {
   const { t, i18n } = useTranslation();
@@ -24,7 +43,7 @@ const App = () => {
 
   return (
     <Routes>
-      <Route path="/" element={<DefaultLanguageRoute defaultLanguage="ua" />} />
+      <Route path="/" element={<Navigate to={`/ua`} />} />
       <Route path="/:language" element={<Layout />}>
         <Route index element={<HomePage />} />
         <Route path="about-us" element={<AboutUsPage />} />
@@ -38,7 +57,7 @@ const App = () => {
             path="multimodal-transportation"
             element={<MultimodalTransportationPage />}
           />
-          <Route path="customs-clearance" element={<CustomsCLearancePage />} />
+          <Route path="customs-clearance" element={<CustomsClearancePage />} />
           <Route path="cargo-insurance" element={<CargoInsurancePage />} />
         </Route>
         <Route path="contacts" element={<ContactsPage />} />
