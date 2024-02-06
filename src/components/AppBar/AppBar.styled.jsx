@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-export const Header = styled.header`
+export const Header = styled.div`
   padding: 20px 0;
   background: linear-gradient(to right, #ecedff1a, #8c8cff);
   min-height: 112px;

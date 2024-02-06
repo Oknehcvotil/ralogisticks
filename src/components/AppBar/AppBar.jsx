@@ -24,6 +24,10 @@ const AppBar = () => {
     setIsSubmenuOpen(!isSubmenuOpen);
   };
 
+  const closeSubmenu = () => {
+    setIsSubmenuOpen(false);
+  };
+
   useOnClickOutside(sideMenuRef, () => {
     if (isMenuOpen) {
       toggleMenuMode();
@@ -37,12 +41,14 @@ const AppBar = () => {
   });
 
   return (
-    <>
+    <header ref={submenuRef}>
       <Header>
         <HeaderCont>
-          <LogoLink />
+          <LogoLink onClick={closeSubmenu} />
 
-          {isDesktop && <Navigation onClick={toggleSubmenu} />}
+          {isDesktop && (
+            <Navigation onClick={toggleSubmenu} closeSubmenu={closeSubmenu} />
+          )}
 
           <LangCont>
             <LanguageSwitcher />
@@ -60,13 +66,9 @@ const AppBar = () => {
       </Header>
 
       {isSubmenuOpen && isDesktop && (
-        <Submenu
-          isOpen={isSubmenuOpen}
-          onClick={toggleSubmenu}
-          submenuRef={submenuRef}
-        />
+        <Submenu isOpen={isSubmenuOpen} onClick={toggleSubmenu} />
       )}
-    </>
+    </header>
   );
 };
 

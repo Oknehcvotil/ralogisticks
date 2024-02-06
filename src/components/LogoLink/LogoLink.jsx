@@ -3,12 +3,12 @@ import { useTranslation } from 'react-i18next';
 import { Link } from './LogoLink.styled';
 import logo from '../../assets/images/logo/ralogistick_logo.png';
 
-const LogoLink = () => {
+const LogoLink = ({ onClick }) => {
   const { language } = useParams();
   const { t } = useTranslation();
 
   return (
-    <Link to={`/${language}`}>
+    <Link to={`/${language}`} onClick={onClick}>
       <img src={logo} alt="RA LOGISTICS" width="84" height="51" />
       {t('companyName')}
     </Link>

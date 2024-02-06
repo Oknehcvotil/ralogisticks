@@ -8,7 +8,7 @@ const submenuVariants = {
   visible: { height: 150, opacity: 1 },
 };
 
-const Submenu = ({ isOpen, onClick, submenuRef }) => {
+const Submenu = ({ isOpen, onClick }) => {
   const { language } = useParams();
 
   const servicesRoutes = [
@@ -45,7 +45,6 @@ const Submenu = ({ isOpen, onClick, submenuRef }) => {
       animate={isOpen ? 'visible' : 'hidden'}
       variants={submenuVariants}
       transition={{ duration: 0.5 }}
-      ref={submenuRef}
     >
       <SubmenuCont>
         <SubmenuList>
