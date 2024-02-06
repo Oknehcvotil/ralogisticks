@@ -1,10 +1,24 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { MenuContext } from '../../context/navState';
 import { AnimatePresence } from 'framer-motion';
 import { SideMenuCont } from './SideMenu.styled';
 
 const SideMenu = ({ children }) => {
   const { isMenuOpen } = useContext(MenuContext);
+
+  useEffect(() => {
+    const body = document.body;
+
+    if (isMenuOpen) {
+      body.style.overflow = 'hidden';
+    } else {
+      body.style.overflow = 'visible';
+    }
+
+    return () => {
+      body.style.overflow = 'visible';
+    };
+  }, [isMenuOpen]);
 
   return (
     <AnimatePresence>
