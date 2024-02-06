@@ -16,10 +16,11 @@ export const FormStyled = styled(Form)`
     &.contact-page_form .input-container {
       display: flex;
       flex-direction: column;
+      gap: 30px;
     }
 
     &.contact-page_form {
-      gap: 20px;
+      gap: 30px;
       margin: 0;
     }
   }

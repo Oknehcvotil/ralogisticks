@@ -39,7 +39,7 @@ const ContactForm = ({ className }) => {
 
     setTimeout(() => {
       setShowSuccessMessage(false);
-    }, 1000);
+    }, 2000);
   };
 
   return (
