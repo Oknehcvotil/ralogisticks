@@ -18,7 +18,7 @@ export const ContactsList = styled.ul`
   color: var(--main-text-color);
 
   @media (min-width: 768px) {
-    font-size: 14px;
+    font-size: 16px;
     justify-content: space-between;
     margin: 0;
     flex-basis: calc(100% / 2);
@@ -52,7 +52,11 @@ export const ContactsListItem = styled.li`
   align-items: center;
 
   p {
-    max-width: 200px;
+    max-width: 250px;
+
+    @media (min-width: 768px) {
+      max-width: 100%;
+    }
   }
 `;
 

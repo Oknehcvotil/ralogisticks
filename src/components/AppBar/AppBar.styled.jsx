@@ -4,10 +4,6 @@ export const Header = styled.header`
   padding: 20px 0;
   background: linear-gradient(to right, #ecedff1a, #8c8cff);
   min-height: 112px;
-
-  /* @media (min-width: 768px) {
-    min-height: 91px;
-  } */
 `;
 
 export const HeaderCont = styled.div`
