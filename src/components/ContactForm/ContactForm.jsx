@@ -19,6 +19,9 @@ const ContactForm = ({ className }) => {
     email: '',
     message: '',
   });
+
+  console.log(formData);
+
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
   const ContactSchema = Yup.object().shape({

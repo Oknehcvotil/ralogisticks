@@ -20,6 +20,7 @@ const Layout = () => {
       <AppBar />
 
       <Main>
+        
         <Suspense fallback={<Loading />}>
           <Outlet />
         </Suspense>

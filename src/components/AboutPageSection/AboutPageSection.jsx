@@ -8,9 +8,9 @@ const AboutPageSection = () => {
 
   const paragraphs = [
     t('pages.aboutUs.firstParagraf', { companyName: t('companyName') }),
-    t('pages.aboutUs.secondParagraf'),
+    t('pages.aboutUs.secondParagraf', { companyName: t('companyName') }),
     t('pages.aboutUs.thirdParagraf', { companyName: t('companyName') }),
-    t('pages.aboutUs.fourthParagraf'),
+    t('pages.aboutUs.fourthParagraf', { companyName: t('companyName') }),
   ];
 
   return (
