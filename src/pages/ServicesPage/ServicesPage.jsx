@@ -4,8 +4,7 @@ import { Suspense } from 'react';
 const ServicesPage = () => {
   return (
     <>
-      <h2>ServicesPage</h2>
-      <Suspense fallback={'loadin...'}>
+      <Suspense>
         <Outlet />
       </Suspense>
     </>
