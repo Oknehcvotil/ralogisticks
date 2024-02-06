@@ -6,12 +6,20 @@ import * as Yup from 'yup';
 import { useTranslation } from 'react-i18next';
 import CustomTextArea from 'components/CustomTextArea/CustomTextArea';
 import FormBtn from 'components/FormBtn/FormBtn';
+import FormSubmitedMessage from 'components/FormSubmitedMessage/FormSubmitedMessage';
 
 const emailRegex = /^\w+(\.?\w+)?@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
 const phoneRegex = /^(\+\d{6,})?(\d{6,})$/;
 
 const ContactForm = ({ className }) => {
   const { t } = useTranslation();
+  const [formData, setFormData] = useState({
+    name: '',
+    phone: '',
+    email: '',
+    message: '',
+  });
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
   const ContactSchema = Yup.object().shape({
     name: Yup.string().required(t('form.messeges.required')),
@@ -24,19 +32,14 @@ const ContactForm = ({ className }) => {
     message: Yup.string(),
   });
 
-  const [formData, setFormData] = useState({
-    name: '',
-    phone: '',
-    email: '',
-    message: '',
-  });
-
-  console.log(formData);
-
   const handleSubmit = (values, { resetForm }) => {
     setFormData(values);
-
     resetForm();
+    setShowSuccessMessage(true);
+
+    setTimeout(() => {
+      setShowSuccessMessage(false);
+    }, 1000);
   };
 
   return (
@@ -51,7 +54,11 @@ const ContactForm = ({ className }) => {
       onSubmit={handleSubmit}
     >
       <FormStyled className={className}>
-        <InputContainer className='input-container'>
+        {showSuccessMessage && (
+          <FormSubmitedMessage>{t('form.submitedText')}</FormSubmitedMessage>
+        )}
+
+        <InputContainer className="input-container">
           <Field
             name="name"
             label={t('form.labels.name')}

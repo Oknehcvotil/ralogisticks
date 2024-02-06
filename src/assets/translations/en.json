@@ -44,6 +44,7 @@
       "tel": "Phone",
       "message": "Message"
     },
-    "btn": "send"
+    "btn": "send",
+    "submitedText": "Your message has been sent. Our manager will contact you shortly."
   }
 }
