@@ -40,7 +40,7 @@ const ContactForm = ({ className }) => {
     try {
       // Отправка данных на бэкенд
       const response = await axios.post(
-        'https://ralogisticks-backend.vercel.app/submit-form',
+        'https://ralogitics.onrender.com/submit-form',
         values
       );
 
