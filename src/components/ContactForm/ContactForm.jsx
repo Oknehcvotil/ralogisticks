@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import axios from 'axios'; 
 import CustomInput from 'components/CustomInput/CustomInput';
 import { Formik, Field } from 'formik';
 import { FormStyled, InputContainer } from './ContactForm.styled';
@@ -35,14 +36,28 @@ const ContactForm = ({ className }) => {
     message: Yup.string(),
   });
 
-  const handleSubmit = (values, { resetForm }) => {
-    setFormData(values);
-    resetForm();
-    setShowSuccessMessage(true);
+  const handleSubmit = async (values, { resetForm }) => {
+    try {
+      // Отправка данных на бэкенд
+      const response = await axios.post(
+        'http://ralogisticks-backend.vercel.app/submit-form',
+        values
+      );
 
-    setTimeout(() => {
-      setShowSuccessMessage(false);
-    }, 2000);
+      // Обработка успешной отправки
+      console.log('Ответ от сервера:', response.data);
+
+      setFormData(values);
+      resetForm();
+      setShowSuccessMessage(true);
+
+      setTimeout(() => {
+        setShowSuccessMessage(false);
+      }, 2000);
+    } catch (error) {
+      // Обработка ошибок при отправке на бэкенд
+      console.error('Ошибка при отправке данных:', error.message);
+    }
   };
 
   return (
