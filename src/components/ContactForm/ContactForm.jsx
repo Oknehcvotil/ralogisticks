@@ -1,5 +1,3 @@
-import { useState } from 'react';
-import axios from 'axios';
 import CustomInput from 'components/CustomInput/CustomInput';
 import { Formik, Field } from 'formik';
 import { FormStyled, InputContainer } from './ContactForm.styled';
@@ -8,22 +6,24 @@ import { useTranslation } from 'react-i18next';
 import CustomTextArea from 'components/CustomTextArea/CustomTextArea';
 import FormBtn from 'components/FormBtn/FormBtn';
 import FormSubmitedMessage from 'components/FormSubmitedMessage/FormSubmitedMessage';
+import { useSelector, useDispatch } from 'react-redux';
+import {
+  submitForm,
+} from '../../redux/contactFormSlice/contactFormThunk';
+import {
+  selectFormData,
+  selectShowSuccessMessage,
+} from '../../redux/contactFormSlice/selectors';
 
 const emailRegex = /^\w+(\.?\w+)?@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
 const phoneRegex = /^(\+\d{6,})?(\d{6,})$/;
 
 const ContactForm = ({ className }) => {
   const { t } = useTranslation();
-  const [formData, setFormData] = useState({
-    name: '',
-    phone: '',
-    email: '',
-    message: '',
-  });
+  const dispatch = useDispatch();
 
-  console.log(formData);
-
-  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+  const formData = useSelector(selectFormData);
+  const showSuccessMessage = useSelector(selectShowSuccessMessage);
 
   const ContactSchema = Yup.object().shape({
     name: Yup.string().required(t('form.messeges.required')),
@@ -36,38 +36,20 @@ const ContactForm = ({ className }) => {
     message: Yup.string(),
   });
 
-  const handleSubmit = async (values, { resetForm }) => {
+  const handleSubmit = (values, { resetForm }) => {
     try {
-      // Отправка данных на бэкенд
-      const response = await axios.post(
-        'https://ralogitics.onrender.com/submit-form',
-        values
-      );
+      dispatch(submitForm(values));
 
-      // Обработка успешной отправки
-      console.log('Ответ от сервера:', response.data);
-
-      setFormData(values);
       resetForm();
-      setShowSuccessMessage(true);
-
-      setTimeout(() => {
-        setShowSuccessMessage(false);
-      }, 2000);
+      
     } catch (error) {
-      // Обработка ошибок при отправке на бэкенд
-      console.error('Ошибка при отправке данных:', error.message);
+      console.error('Error submitting form:', error.message);
     }
   };
 
   return (
     <Formik
-      initialValues={{
-        name: '',
-        phone: '',
-        email: '',
-        message: '',
-      }}
+      initialValues={formData}
       validationSchema={ContactSchema}
       onSubmit={handleSubmit}
     >

@@ -1,5 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { persistedReducer } from './languageSlice/languageSlice';
+import { persistedFormReducer } from './contactFormSlice/contactFormSlice';
 import {
   persistStore,
   FLUSH,
@@ -13,6 +14,7 @@ import {
 export const store = configureStore({
   reducer: {
     language: persistedReducer,
+    contactForm: persistedFormReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
