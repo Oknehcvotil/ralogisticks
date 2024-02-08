@@ -1,6 +1,5 @@
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import { MenuContext } from '../../context/navState';
-import { AnimatePresence } from 'framer-motion';
 import { SideMenuCont } from './SideMenu.styled';
 
 const SideMenu = ({ children }) => {

@@ -15,10 +15,9 @@ export const LoadingCont = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 30px;
 
-  position: absolute;
-  top: 50%;
+  position: fixed;
+  top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
 `;
