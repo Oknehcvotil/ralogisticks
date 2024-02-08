@@ -1,31 +1,29 @@
-import CustomInput from 'components/CustomInput/CustomInput';
 import { Formik, Field } from 'formik';
 import { FormStyled, InputContainer } from './ContactForm.styled';
 import * as Yup from 'yup';
+import { useSelector, useDispatch } from 'react-redux';
+import { submitForm } from '../../redux/contactFormSlice/contactFormThunk';
+import {
+  selectFormData,
+  selectLoading,
+} from '../../redux/contactFormSlice/selectors';
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import CustomTextArea from 'components/CustomTextArea/CustomTextArea';
 import FormBtn from 'components/FormBtn/FormBtn';
 import FormSubmitedMessage from 'components/FormSubmitedMessage/FormSubmitedMessage';
-import { useSelector, useDispatch } from 'react-redux';
-import { useEffect } from 'react';
-import { submitForm } from '../../redux/contactFormSlice/contactFormThunk';
-import { setShowSuccessMessage } from '../../redux/contactFormSlice/contactFormSlice';
-import {
-  selectFormData,
-  selectShowSuccessMessage,
-  selectLoading,
-} from '../../redux/contactFormSlice/selectors';
+import CustomInput from 'components/CustomInput/CustomInput';
 import Loading from 'components/Loading';
 
 const emailRegex = /^\w+(\.?\w+)?@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
-const phoneRegex = /^(\+\d{6,})?(\d{6,})$/;
+const phoneRegex = /^\+?\d{6,}$/;
 
 const ContactForm = ({ className }) => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
+  const { isSuccessMessage, setIsSuccessMessage } = useState(false);
 
   const formData = useSelector(selectFormData);
-  const showSuccessMessage = useSelector(selectShowSuccessMessage);
   const isLoading = useSelector(selectLoading);
 
   const ContactSchema = Yup.object().shape({
@@ -44,20 +42,15 @@ const ContactForm = ({ className }) => {
       dispatch(submitForm(values));
 
       resetForm();
+      setIsSuccessMessage(true);
+
+      setTimeout(() => {
+        setIsSuccessMessage(false);
+      }, 2000);
     } catch (error) {
       console.error('Error submitting form:', error.message);
     }
   };
-
-  useEffect(() => {
-    if (showSuccessMessage) {
-      const timeoutId = setTimeout(() => {
-        dispatch(setShowSuccessMessage(false));
-      }, 2000);
-
-      return () => clearTimeout(timeoutId); // Cleanup on component unmount
-    }
-  }, [showSuccessMessage, dispatch]);
 
   return (
     <Formik
@@ -67,7 +60,7 @@ const ContactForm = ({ className }) => {
     >
       <FormStyled className={className}>
         {isLoading && <Loading />}
-        {showSuccessMessage && (
+        {isSuccessMessage && (
           <FormSubmitedMessage>{t('form.submitedText')}</FormSubmitedMessage>
         )}
 

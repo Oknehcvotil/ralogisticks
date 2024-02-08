@@ -10,7 +10,6 @@ const initialState = {
     email: '',
     message: '',
   },
-  showSuccessMessage: false,
   loading: false,
   error: null,
 };
@@ -22,9 +21,6 @@ const contactFormSlice = createSlice({
     setFormData: (state, action) => {
       state.formData = action.payload;
     },
-    setShowSuccessMessage: (state, action) => {
-      state.showSuccessMessage = action.payload;
-    },
   },
   extraReducers: builder => {
     builder
@@ -33,7 +29,6 @@ const contactFormSlice = createSlice({
       })
       .addCase(submitForm.fulfilled, (state, action) => {
         state.loading = false;
-        state.showSuccessMessage = true;
         state.formData = initialState.formData;
       })
       .addCase(submitForm.rejected, (state, action) => {
@@ -48,7 +43,7 @@ const persistConfig = {
   storage,
 };
 
-export const { setFormData, setShowSuccessMessage } = contactFormSlice.actions;
+export const { setFormData } = contactFormSlice.actions;
 
 export const persistedFormReducer = persistReducer(
   persistConfig,
