@@ -7,13 +7,15 @@ import CustomTextArea from 'components/CustomTextArea/CustomTextArea';
 import FormBtn from 'components/FormBtn/FormBtn';
 import FormSubmitedMessage from 'components/FormSubmitedMessage/FormSubmitedMessage';
 import { useSelector, useDispatch } from 'react-redux';
-import {
-  submitForm,
-} from '../../redux/contactFormSlice/contactFormThunk';
+import { useEffect } from 'react';
+import { submitForm } from '../../redux/contactFormSlice/contactFormThunk';
+import { setShowSuccessMessage } from '../../redux/contactFormSlice/contactFormSlice';
 import {
   selectFormData,
   selectShowSuccessMessage,
+  selectLoading,
 } from '../../redux/contactFormSlice/selectors';
+import Loading from 'components/Loading';
 
 const emailRegex = /^\w+(\.?\w+)?@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
 const phoneRegex = /^(\+\d{6,})?(\d{6,})$/;
@@ -24,6 +26,7 @@ const ContactForm = ({ className }) => {
 
   const formData = useSelector(selectFormData);
   const showSuccessMessage = useSelector(selectShowSuccessMessage);
+  const isLoading = useSelector(selectLoading);
 
   const ContactSchema = Yup.object().shape({
     name: Yup.string().required(t('form.messeges.required')),
@@ -41,11 +44,20 @@ const ContactForm = ({ className }) => {
       dispatch(submitForm(values));
 
       resetForm();
-      
     } catch (error) {
       console.error('Error submitting form:', error.message);
     }
   };
+
+  useEffect(() => {
+    if (showSuccessMessage) {
+      const timeoutId = setTimeout(() => {
+        dispatch(setShowSuccessMessage(false));
+      }, 2000);
+
+      return () => clearTimeout(timeoutId); // Cleanup on component unmount
+    }
+  }, [showSuccessMessage, dispatch]);
 
   return (
     <Formik
@@ -54,6 +66,7 @@ const ContactForm = ({ className }) => {
       onSubmit={handleSubmit}
     >
       <FormStyled className={className}>
+        {isLoading && <Loading />}
         {showSuccessMessage && (
           <FormSubmitedMessage>{t('form.submitedText')}</FormSubmitedMessage>
         )}
