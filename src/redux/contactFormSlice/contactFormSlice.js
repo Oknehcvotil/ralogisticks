@@ -35,6 +35,10 @@ const contactFormSlice = createSlice({
         state.loading = false;
         state.formData = initialState.formData;
         state.showSuccessMessage = true;
+
+        setTimeout(() => {
+          state.showSuccessMessage = false;
+        }, 2000);
       })
       .addCase(submitForm.rejected, (state, action) => {
         state.loading = false;
