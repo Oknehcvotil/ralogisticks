@@ -31,9 +31,7 @@ const CargoInsurancePage = lazy(() =>
 const NotFoundPage = lazy(() =>
   import('../../pages/NotFoundPage/NotFoundPage')
 );
-const CustomsClearancePage = lazy(() =>
-  import('../../pages/CustomsClearancePage/CustomsClearancePage')
-);
+const CustomsPage = lazy(() => import('../../pages/CustomsPage/CustomsPage'));
 
 const App = () => {
   const { t, i18n } = useTranslation();
@@ -59,7 +57,7 @@ const App = () => {
             path="multimodal-transportation"
             element={<MultimodalTransportationPage />}
           />
-          <Route path="customs-clearance" element={<CustomsClearancePage />} />
+          <Route path="customs-clearance" element={<CustomsPage />} />
           <Route path="cargo-insurance" element={<CargoInsurancePage />} />
         </Route>
         <Route path="contacts" element={<ContactsPage />} />
