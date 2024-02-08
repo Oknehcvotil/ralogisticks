@@ -33,8 +33,8 @@ const contactFormSlice = createSlice({
       })
       .addCase(submitForm.fulfilled, (state, action) => {
         state.loading = false;
-        state.formData = initialState.formData;
         state.showSuccessMessage = true;
+        state.formData = initialState.formData;
       })
       .addCase(submitForm.rejected, (state, action) => {
         state.loading = false;
@@ -54,4 +54,3 @@ export const persistedFormReducer = persistReducer(
   persistConfig,
   contactFormSlice.reducer
 );
-
