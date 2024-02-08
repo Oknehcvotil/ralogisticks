@@ -25,12 +25,14 @@ const MultimodalTransportationPage = lazy(() =>
     '../../pages/MultimodalTransportationPage/MultimodalTransportationPage'
   )
 );
-const CustomsClearancePage=lazy(()=>import('../../pages/CustomsClearancePage/CustomsClearancePage'))
 const CargoInsurancePage = lazy(() =>
   import('../../pages/CargoInsurancePage/CargoInsurancePage')
 );
 const NotFoundPage = lazy(() =>
   import('../../pages/NotFoundPage/NotFoundPage')
+);
+const CustomsClearancePage = lazy(() =>
+  import('../../pages/CustomsClearancePage/CustomsClearancePage')
 );
 
 const App = () => {
