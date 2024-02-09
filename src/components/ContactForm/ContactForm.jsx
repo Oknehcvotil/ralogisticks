@@ -57,9 +57,7 @@ const ContactForm = ({ className }) => {
 
       return () => clearTimeout(timeoutId);
     }
-
-    // eslint-disable-next-line
-  }, []);
+  }, [isSuccessMessage, dispatch]);
 
   return (
     <Formik
