@@ -10,7 +10,7 @@ const initialState = {
     email: '',
     message: '',
   },
-  showSuccessMessage: true,
+  showSuccessMessage: false,
   loading: false,
   error: null,
 };
