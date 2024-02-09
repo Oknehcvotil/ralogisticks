@@ -7,7 +7,6 @@ import CustomTextArea from 'components/CustomTextArea/CustomTextArea';
 import FormBtn from 'components/FormBtn/FormBtn';
 import FormSubmitedMessage from 'components/FormSubmitedMessage/FormSubmitedMessage';
 import { useSelector, useDispatch } from 'react-redux';
-import { useEffect, useState } from 'react';
 import { submitForm } from '../../redux/contactFormSlice/contactFormThunk';
 import { setShowSuccessMessage } from '../../redux/contactFormSlice/contactFormSlice';
 import {
@@ -44,6 +43,10 @@ const ContactForm = ({ className }) => {
       dispatch(submitForm(values));
 
       resetForm();
+
+      setTimeout(() => {
+        setShowSuccessMessage(false);
+      }, 2000);
     } catch (error) {
       console.error('Error submitting form:', error.message);
     }

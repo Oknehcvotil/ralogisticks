@@ -2,7 +2,6 @@ import { createSlice } from '@reduxjs/toolkit';
 import { submitForm } from './contactFormThunk';
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import produce from 'immer';
 
 const initialState = {
   formData: {
@@ -36,12 +35,6 @@ const contactFormSlice = createSlice({
         state.loading = false;
         state.formData = initialState.formData;
         state.showSuccessMessage = true;
-
-        setTimeout(() => {
-          produce(state, draftState => {
-            draftState.showSuccessMessage = false;
-          });
-        }, 2000);
       })
       .addCase(submitForm.rejected, (state, action) => {
         state.loading = false;
@@ -61,3 +54,4 @@ export const persistedFormReducer = persistReducer(
   persistConfig,
   contactFormSlice.reducer
 );
+
