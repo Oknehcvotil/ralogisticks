@@ -21,7 +21,7 @@ const phoneRegex = /^\+?\d{6,}$/;
 const ContactForm = ({ className }) => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
-  const { isSuccessMessage, setIsSuccessMessage } = useState(false);
+  const [isSuccessMessage, setIsSuccessMessage] = useState(false);
 
   const formData = useSelector(selectFormData);
   const isLoading = useSelector(selectLoading);
@@ -42,6 +42,7 @@ const ContactForm = ({ className }) => {
       dispatch(submitForm(values));
 
       resetForm();
+
       setIsSuccessMessage(true);
 
       setTimeout(() => {
