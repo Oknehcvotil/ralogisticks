@@ -5,13 +5,17 @@ import { useSelector, useDispatch } from 'react-redux';
 import { submitForm } from '../../redux/contactFormSlice/contactFormThunk';
 import {
   selectFormData,
+  selectLoading,
+  selectShowSuccessMessage,
 } from '../../redux/contactFormSlice/selectors';
-import { useState } from 'react';
+import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { setShowSuccessMessage } from '../../redux/contactFormSlice/contactFormSlice';
 import CustomTextArea from 'components/CustomTextArea/CustomTextArea';
 import FormBtn from 'components/FormBtn/FormBtn';
 import FormSubmitedMessage from 'components/FormSubmitedMessage/FormSubmitedMessage';
 import CustomInput from 'components/CustomInput/CustomInput';
+import Loading from 'components/Loading';
 
 const emailRegex = /^\w+(\.?\w+)?@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
 const phoneRegex = /^\+?\d{6,}$/;
@@ -19,9 +23,10 @@ const phoneRegex = /^\+?\d{6,}$/;
 const ContactForm = ({ className }) => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
-  const [isSuccessMessage, setIsSuccessMessage] = useState(false);
 
   const formData = useSelector(selectFormData);
+  const isLoading = useSelector(selectLoading);
+  const isSuccessMessage = useSelector(selectShowSuccessMessage);
 
   const ContactSchema = Yup.object().shape({
     name: Yup.string().required(t('form.messeges.required')),
@@ -39,16 +44,22 @@ const ContactForm = ({ className }) => {
       dispatch(submitForm(values));
 
       resetForm();
-
-      setIsSuccessMessage(true);
-
-      setTimeout(() => {
-        setIsSuccessMessage(false);
-      }, 2000);
     } catch (error) {
       console.error('Error submitting form:', error.message);
     }
   };
+
+  useEffect(() => {
+    if (isSuccessMessage) {
+      const timeoutId = setTimeout(() => {
+        dispatch(setShowSuccessMessage(false));
+      }, 2000);
+
+      return () => clearTimeout(timeoutId);
+    }
+
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <Formik
@@ -57,6 +68,7 @@ const ContactForm = ({ className }) => {
       onSubmit={handleSubmit}
     >
       <FormStyled className={className}>
+        {isLoading && <Loading />}
         {isSuccessMessage && (
           <FormSubmitedMessage>{t('form.submitedText')}</FormSubmitedMessage>
         )}
