@@ -5,7 +5,7 @@ import { Cont, ListCont, SectionCont } from './OurServicesSection.styled';
 import MenuItem from 'components/MenuItem/MenuItem';
 import SubmenuNavItem from 'components/SubmenuNavItem/SubmenuNavItem';
 
-const OurServicesSection = () => {
+const OurServicesSection = ({ animateFadeIn }) => {
   const { language } = useParams();
   const { t } = useTranslation();
 
@@ -55,7 +55,12 @@ const OurServicesSection = () => {
         </Title>
         <ListCont>
           {servicesRoutes.map((route, index) => (
-            <MenuItem key={index} to={route.path}>
+            <MenuItem
+              animateFadeIn={animateFadeIn}
+              key={index}
+              to={route.path}
+              index={index}
+            >
               <SubmenuNavItem key={route.id} id={route.id}>
                 {route.label}
               </SubmenuNavItem>

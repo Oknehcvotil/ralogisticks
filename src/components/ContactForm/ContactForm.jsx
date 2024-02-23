@@ -17,7 +17,7 @@ import FormSubmitedMessage from 'components/FormSubmitedMessage/FormSubmitedMess
 import CustomInput from 'components/CustomInput/CustomInput';
 import Loading from 'components/Loading';
 
-const emailRegex = /^\w+(\.?\w+)?@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+const emailRegex = /^\w+(\.?\w+)?@[a-zA-Z_]+?\.[a-zA-Z]{2,}(\.[a-zA-Z]{2,})?$/;
 const phoneRegex = /^\+?\d{6,}$/;
 
 const ContactForm = ({ className }) => {

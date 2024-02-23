@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { motion } from 'framer-motion';
 
 export const Cont = styled.div`
   margin: 0 auto;
@@ -10,7 +11,7 @@ export const Cont = styled.div`
   }
 `;
 
-export const ContactsList = styled.ul`
+export const ContactsList = styled(motion.ul)`
   display: flex;
   flex-direction: column;
   margin: 0 auto 50px;
@@ -46,7 +47,7 @@ export const ContactsList = styled.ul`
   }
 `;
 
-export const ContactsListItem = styled.li`
+export const ContactsListItem = styled(motion.li)`
   display: flex;
   gap: 10px;
   align-items: center;
@@ -68,6 +69,6 @@ export const FlexBox = styled.div`
   }
 `;
 
-export const FormCont = styled.div`
+export const FormCont = styled(motion.div)`
   flex-basis: calc(100% / 2);
 `;

@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { motion } from 'framer-motion';
 
 export const Container = styled.div`
   margin: 0 auto;
@@ -26,7 +27,7 @@ export const Container = styled.div`
   }
 `;
 
-export const PictureCont = styled.div`
+export const PictureCont = styled(motion.div)`
   overflow: hidden;
-  border-radius: 15px;  
+  border-radius: 15px;
 `;

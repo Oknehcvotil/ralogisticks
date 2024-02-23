@@ -1,18 +1,14 @@
 import ServicesPageSection from 'components/ServicesPageSection/ServicesPageSection';
+import { customsParagraphs } from 'data/data';
 
 const CustomsClearancePage = () => {
-  const paragraphs = [
-    'pages.services.customsService.firstParagraf',
-    'pages.services.customsService.secondParagraf',
-  ];
-
   return (
     <section>
       <ServicesPageSection
         altText={'Customs Clearance'}
         imagePath={'customs_service/customs'}
         title={'navigation.services.customs'}
-        paragraphs={paragraphs}
+        paragraphs={customsParagraphs}
       />
     </section>
   );

@@ -2,6 +2,21 @@ import Title from 'components/Title/Title';
 import { useTranslation } from 'react-i18next';
 import { Container, PictureCont } from './AboutPageSection.styled';
 import Picture from 'components/Picture/Picture';
+import { motion } from 'framer-motion';
+
+const fadeInVariants = {
+  initial: {
+    opacity: 0,
+    y: 100,
+  },
+  animate: index => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: 0.05 * index,
+    },
+  }),
+};
 
 const AboutPageSection = () => {
   const { t } = useTranslation();
@@ -28,10 +43,29 @@ const AboutPageSection = () => {
         {t('titles.aboutUs')}
       </Title>
       {paragraphs.map((paragraph, index) => (
-        <p key={index}>{paragraph}</p>
+        <motion.p
+          key={index}
+          variants={fadeInVariants}
+          initial="initial"
+          animate="animate"
+          custom={index}
+        >
+          {paragraph}
+        </motion.p>
       ))}
 
-      <PictureCont>
+      <PictureCont
+        initial={{ opacity: 0 }}
+        whileInView={{
+          opacity: 1,
+        }}
+        transition={{
+          duration: 1,
+        }}
+        viewport={{
+          once: true,
+        }}
+      >
         <Picture imagePath="about_us/trucks" altText="RA LOGISTICS TRUCKS" />
       </PictureCont>
     </Container>

@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
+import { motion } from 'framer-motion';
 
-export const AboutUsCont = styled.div`
+export const AboutUsCont = styled(motion.div)`
   margin: 0 auto;
   padding: 62px 15px 40px;
 

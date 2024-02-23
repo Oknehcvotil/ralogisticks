@@ -10,26 +10,29 @@ import { useTranslation } from 'react-i18next';
 import ContactForm from 'components/ContactForm/ContactForm';
 import Icon from 'components/Icon/Icon';
 import ContactItem from 'components/ContactItem/ContactItem';
+import { contactItems } from 'data/data';
+
+const container = {
+  hidden: { opacity: 1 },
+  visible: {
+    opacity: 1,
+    transition: {
+      delayChildren: 0.3,
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const itemAnimation = {
+  hidden: { x: -100, opacity: 0 },
+  visible: {
+    x: 0,
+    opacity: 1,
+  },
+};
 
 const ContactsSection = () => {
   const { t } = useTranslation();
-  const contactItems = [
-    {
-      href: 'tel:+380936473201',
-      iconName: '#icon-phone',
-      text: '+38 (093) 647-32-01',
-    },
-    {
-      href: 'tel:+380677597721',
-      iconName: '#icon-phone',
-      text: '+38 (067) 759-77-21',
-    },
-    {
-      href: 'mailto:management@ralogistics.com.ua',
-      iconName: '#icon-mail',
-      text: 'management@ralogistics.com.ua',
-    },
-  ];
 
   return (
     <Cont>
@@ -47,8 +50,8 @@ const ContactsSection = () => {
       </Title>
 
       <FlexBox>
-        <ContactsList>
-          <ContactsListItem>
+        <ContactsList variants={container} initial="hidden" animate="visible">
+          <ContactsListItem variants={itemAnimation}>
             <Icon iconName="#icon-location" width="30" height="30" />
             <p>{t('location.fullAdress')}</p>
           </ContactsListItem>
@@ -61,21 +64,33 @@ const ContactsSection = () => {
               text={item.text}
               width="30"
               height="30"
+              animation={itemAnimation}
             />
           ))}
 
-          <ContactsListItem>
+          <ContactsListItem variants={itemAnimation}>
             <Icon iconName="#icon-fax" width="30" height="30" />
             <p>fax: +38 (048) 737-50-76</p>
           </ContactsListItem>
 
-          <ContactsListItem>
+          <ContactsListItem variants={itemAnimation}>
             <Icon iconName="#icon-clock" width="30" height="30" />
             <p>{t('workHours')}</p>
           </ContactsListItem>
         </ContactsList>
 
-        <FormCont>
+        <FormCont
+          initial={{ opacity: 0 }}
+          whileInView={{
+            opacity: 1,
+          }}
+          transition={{
+            duration: 1,
+          }}
+          viewport={{
+            once: true,
+          }}
+        >
           <Title
             level={2}
             style={{

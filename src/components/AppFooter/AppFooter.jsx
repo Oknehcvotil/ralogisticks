@@ -9,29 +9,12 @@ import {
 } from './AppFooter.styled';
 import { useTranslation } from 'react-i18next';
 import ContactItem from 'components/ContactItem/ContactItem';
+import { contactItems } from 'data/data';
 
 const AppFooter = () => {
   const { t } = useTranslation();
 
   const currentYear = new Date().getFullYear();
-
-  const contactItems = [
-    {
-      href: 'tel:+380936473201',
-      iconName: '#icon-phone',
-      text: '+38 (093) 647-32-01',
-    },
-    {
-      href: 'tel:+380677597721',
-      iconName: '#icon-phone',
-      text: '+38 (067) 759-77-21',
-    },
-    {
-      href: 'mailto:management@ralogistics.com.ua',
-      iconName: '#icon-mail',
-      text: 'management@ralogistics.com.ua',
-    },
-  ];
 
   return (
     <Footer>

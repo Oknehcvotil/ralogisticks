@@ -4,11 +4,18 @@ import Title from 'components/Title/Title';
 import OurServicesSection from 'components/OurServicesSection/OurServicesSection';
 import AboutUsSection from 'components/AboutUsSection/AboutUsSection';
 import FormSection from 'components/FormSection/FormSection';
+import { motion } from 'framer-motion';
 
 const HomePage = () => {
   return (
     <>
-      <section>
+      <motion.section
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{
+          duration: 1,
+        }}
+      >
         <Title
           style={{
             position: 'absolute',
@@ -24,17 +31,28 @@ const HomePage = () => {
           Home Page
         </Title>
         <ServicesSlider />
-      </section>
+      </motion.section>
 
       <section>
         <AboutUsSection />
       </section>
 
-      <OurServicesSection />
+      <OurServicesSection animateFadeIn={true} />
 
-      <section>
+      <motion.section
+        initial={{ opacity: 0 }}
+        whileInView={{
+          opacity: 1,
+        }}
+        transition={{
+          duration: 1,
+        }}
+        viewport={{
+          once: true,
+        }}
+      >
         <FormSection />
-      </section>
+      </motion.section>
 
       <section>
         <GoogleMap />
