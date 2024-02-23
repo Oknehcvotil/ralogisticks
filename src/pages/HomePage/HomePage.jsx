@@ -37,7 +37,7 @@ const HomePage = () => {
         <AboutUsSection />
       </section>
 
-      <OurServicesSection animateFadeIn={true} />
+      <OurServicesSection />
 
       <motion.section
         initial={{ opacity: 0 }}

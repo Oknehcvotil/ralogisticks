@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { motion } from 'framer-motion';
 
 export const SectionCont = styled.section`
   background-color: #f5f5f5;
@@ -14,7 +15,7 @@ export const Cont = styled.div`
   }
 `;
 
-export const ListCont = styled.ul`
+export const ListCont = styled(motion.ul)`
   display: flex;
   flex-direction: column;
   width: 100%;

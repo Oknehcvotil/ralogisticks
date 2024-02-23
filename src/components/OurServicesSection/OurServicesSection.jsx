@@ -5,7 +5,26 @@ import { Cont, ListCont, SectionCont } from './OurServicesSection.styled';
 import MenuItem from 'components/MenuItem/MenuItem';
 import SubmenuNavItem from 'components/SubmenuNavItem/SubmenuNavItem';
 
-const OurServicesSection = ({ animateFadeIn }) => {
+const container = {
+  hidden: { opacity: 1 },
+  visible: {
+    opacity: 1,
+    transition: {
+      delayChildren: 0.2,
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const itemAnimation = {
+  hidden: { y: 100, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+  },
+};
+
+const OurServicesSection = () => {
   const { language } = useParams();
   const { t } = useTranslation();
 
@@ -53,14 +72,16 @@ const OurServicesSection = ({ animateFadeIn }) => {
         >
           {t('titles.ourServices')}
         </Title>
-        <ListCont>
+        <ListCont
+          variants={container}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{
+            once: true,
+          }}
+        >
           {servicesRoutes.map((route, index) => (
-            <MenuItem
-              animateFadeIn={animateFadeIn}
-              key={index}
-              to={route.path}
-              index={index}
-            >
+            <MenuItem key={index} to={route.path} variants={itemAnimation}>
               <SubmenuNavItem key={route.id} id={route.id}>
                 {route.label}
               </SubmenuNavItem>
